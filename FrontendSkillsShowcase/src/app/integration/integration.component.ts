@@ -1,10 +1,11 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { AcessibilidadeWebComponent } from '../cursos/acessibilidade-web/acessibilidade-web.component';
+import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-integration',
   standalone: true,
-  imports: [ AcessibilidadeWebComponent, ],
+  imports: [ CommonModule, RouterOutlet, RouterLink, RouterLinkActive ],
   templateUrl: './integration.component.html',
   styleUrl: './integration.component.scss'
 })
