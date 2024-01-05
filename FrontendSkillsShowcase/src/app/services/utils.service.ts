@@ -1,0 +1,19 @@
+import { Injectable } from '@angular/core';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class UtilsService {
+
+  constructor() { }
+
+  adicionaLinkTag(rel: string, href: string, crossorigin?: string): void {
+    const link: HTMLLinkElement = document.createElement('link');
+    link.rel = rel;
+    link.href = href;
+    if (crossorigin) {
+      link.crossOrigin = crossorigin;
+    }
+    document.head.appendChild(link);
+  }
+}

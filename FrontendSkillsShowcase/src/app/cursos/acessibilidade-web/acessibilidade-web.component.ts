@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Title } from '@angular/platform-browser';
+import { Title, Meta } from '@angular/platform-browser';
 import { NgClass } from '@angular/common';
+import { UtilsService } from '../../services/utils.service';
 
 @Component({
   selector: 'app-acessibilidade-web',
@@ -12,7 +13,6 @@ import { NgClass } from '@angular/common';
 export class AcessibilidadeWebComponent implements OnInit {
 
   contatoApeperia: string = 'contato@apeperia.com';
-  isMyComponent: boolean = true;
   botaoAtivo: number = 0;
   modal: boolean = false;
   classeAtiva: Record<string, boolean> = {};
@@ -21,11 +21,25 @@ export class AcessibilidadeWebComponent implements OnInit {
   contatoValidouFoi: boolean = false;
   contatoValidouErro: boolean = false;
 
-  constructor(private titleService: Title) {  
+  constructor(
+    private titleService: Title,
+    private metaService: Meta,
+    private utilsService: UtilsService,
+    ) {  
   }
 
   ngOnInit(): void {
     this.titleService.setTitle('Acessibilidade Web');
+    this.adicionaMetaTag();
+    this.adicionaLinksTags();
+  }
+
+  adicionaMetaTag(): void {
+    this.metaService.addTag({ name: 'viewport', content: 'width=device-width' });
+  }
+
+  adicionaLinksTags(): void {
+    this.utilsService.adicionaLinkTag('stylesheet', 'https://fonts.googleapis.com/css?family=Montserrat:300,400,700|Open+Sans:300,400,700');
   }
 
   carosselJs(noticia: number): void {
