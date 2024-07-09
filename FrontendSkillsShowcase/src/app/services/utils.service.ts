@@ -7,12 +7,15 @@ export class UtilsService {
 
   constructor() { }
 
-  adicionaLinkTag(rel: string, href: string, crossorigin?: string): void {
+  adicionaLinkTag(rel: string, href: string, crossorigin?: string, type?:string): void {
     const link: HTMLLinkElement = document.createElement('link');
     link.rel = rel;
     link.href = href;
     if (crossorigin) {
       link.crossOrigin = crossorigin;
+    }
+    if (type) {
+      link.type = type;
     }
     document.head.appendChild(link);
   }

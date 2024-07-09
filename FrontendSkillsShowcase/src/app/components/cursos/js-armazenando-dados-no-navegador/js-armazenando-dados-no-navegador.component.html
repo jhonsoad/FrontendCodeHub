@@ -1,0 +1,21 @@
+<main class="conteudo">
+    <div class="principal">
+        <div class="mochila"></div>
+        <form (submit)="enviaForm($event)" class="adicionar" id="novoItem">
+            <label for="item">Nome</label>
+            <input type="text" name="nome" id="nome" [(ngModel)]="formData.nome">
+            <label for="item">Quantidade</label>
+            <input type="number" name="quantidade" id="quantidade" [(ngModel)]="formData.quantidade">
+            <input type="submit" value="Adicionar" class="cadastrar">
+        </form>
+    </div>
+    <ul class="lista" id="lista">
+        <li *ngFor="let item of itens" class="item" id="">
+            <strong>
+                {{ item.quantidade }}
+            </strong>
+            {{ item.nome }}
+            <button (click)="deleteItem(item.id)">X</button>
+        </li>
+    </ul>
+</main>
