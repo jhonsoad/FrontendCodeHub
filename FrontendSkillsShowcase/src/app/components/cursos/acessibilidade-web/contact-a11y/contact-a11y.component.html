@@ -1,0 +1,80 @@
+<section class="secaoContato">
+    <div class="container">
+      <h2 class="tituloPadrao">
+        CONTATO
+      </h2>
+
+      <form class="secaoContato-form">
+
+        <p class="secaoContato-form-legend">
+          Oi, tudo bem? Fale com a gente!
+          Preencha seus dados e sua mensagem:
+        </p>
+
+        <div [ngClass]="classeAtiva" class="contatoCampo">
+          <label>Nome: </label>
+          <input type="text" [ngClass]="classeAtiva" aria-placeholder="Nome..." required>
+        </div>
+
+        <div [ngClass]="classeAtiva" class="contatoCampo contatoCampo--erro">
+          <label>Email: </label>
+          <input type="email" [ngClass]="classeAtiva" aria-placeholder="Email..." required>
+          <span class="contatoCampo-msg contatoCampo-msg--erro">
+            Você quis dizer <a href="#">gmail.com?</a>
+          </span>
+        </div>
+
+        <div [ngClass]="classeAtiva" class="contatoCampo contatoCampo--erro">
+          <label>Telefone: </label>
+          <input type="text" [ngClass]="classeAtiva" aria-placeholder="(11) 5571-2751">
+          <span class="contatoCampo-msg contatoCampo-msg--erro">Faltou o DDD</span>
+        </div>
+
+        <div [ngClass]="classeAtiva" class="contatoCampo">
+          <label>CEP: </label>
+          <input type="text" [ngClass]="classeAtiva" maxlength="8" aria-placeholder="Exemplo: 04101-300" required>
+        </div>
+
+        <div [ngClass]="classeAtiva" class="contatoCampo">
+          <label>Endereço: </label>
+          <input type="text" [ngClass]="classeAtiva" class="contatoCampo-campoDesabilitado" readonly value="Rua Vergueiro">
+        </div>
+
+        <div class="contatoCampo">
+          <label>Bairro: </label>
+          <input type="text" class="contatoCampo-campoDesabilitado" readonly value="Vila Mariana">
+        </div>
+
+        <div class="contatoCampo">
+          <label>Cidade: </label>
+          <input type="text" class="contatoCampo-campoDesabilitado" readonly value="São Paulo">
+        </div>
+
+        <div class="contatoCampo">
+          <label>Estado: </label>
+          <input type="text" class="contatoCampo-campoDesabilitado" readonly value="SP">
+        </div>
+
+        <div [ngClass]="classeAtiva" class="contatoCampo">
+          <label>Mensagem: </label>
+          <textarea name="" cols="30" rows="10" required></textarea>
+        </div>
+
+        <div class="contatoCampo">
+          <input type="checkbox" checked value="receberDestaques" class="contatoCampo-checkbox" id="receberEmail">
+          <label class="contatoCampo-label" for="receberEmail">Receber destaques por email</label>
+        </div>
+
+        <div class="contatoCampo">
+          <button class="secaoContato-form-cta btnPadrao" type="submit">
+            Enviar mensagem
+          </button>
+          <span class="contatoCampo-msg contatoCampo-msg--erro secaoContatoForm-validacao">
+            Verifique os erros acima
+          </span>
+        </div>
+
+      </form>
+    </div> <!--fim .container da .secaoContato-->
+
+  </section> <!--fim .secaoContato-->

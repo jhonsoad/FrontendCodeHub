@@ -73,17 +73,17 @@ text-decoration: underline;
 }
 
 @media (min-width: 830px) {
-    .container {
-      width: 1200px;
-      width: 800px;
-      padding-left: 0;
-      padding-right: 0;
-      padding: 3.5em 2em;
-    }
+  .container {
+    width: 1200px;
+    width: 800px;
+    padding-left: 0;
+    padding-right: 0;
+    padding: 3.5em 2em;
   }
-  
-  @media (min-width: 1065px)  {
-    .container {
-      width: 1000px;
-    }
+}
+
+@media (min-width: 1065px)  {
+  .container {
+    width: 1000px;
   }
+}

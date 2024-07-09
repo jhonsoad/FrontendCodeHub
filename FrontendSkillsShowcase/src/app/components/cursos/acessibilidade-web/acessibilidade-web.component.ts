@@ -4,11 +4,12 @@ import { NgClass } from '@angular/common';
 import { UtilsService } from '../../../services/utils.service';
 import { FooterA11yComponent } from "./footer-a11y/footer-a11y.component";
 import { HeaderA11yComponent } from "./header-a11y/header-a11y.component";
+import { ContactA11yComponent } from "./contact-a11y/contact-a11y.component";
 
 @Component({
   selector: 'app-acessibilidade-web',
   standalone: true,
-  imports: [NgClass, FooterA11yComponent, HeaderA11yComponent],
+  imports: [NgClass, FooterA11yComponent, HeaderA11yComponent, ContactA11yComponent],
   templateUrl: './acessibilidade-web.component.html',
   styleUrl: './acessibilidade-web.component.scss'
 })
@@ -17,11 +18,6 @@ export class AcessibilidadeWebComponent implements OnInit {
   contatoApeperia: string = 'contato@apeperia.com';
   botaoAtivo: number = 0;
   modal: boolean = false;
-  classeAtiva: Record<string, boolean> = {};
-  contatoSucesso: boolean = false;
-  contatoErro: boolean = false;
-  contatoValidouFoi: boolean = false;
-  contatoValidouErro: boolean = false;
 
   constructor(
     private titleService: Title,
@@ -55,15 +51,6 @@ export class AcessibilidadeWebComponent implements OnInit {
   fechaModal(): void {
     this.modal = false;
   }
-
-  selecionaClasse(): void {
-    this.classeAtiva = {
-      contatoCampoSucesso: this.contatoSucesso,
-      contatoCampoErro: this.contatoErro,
-      contatoCampoValidouFoi: this.contatoValidouFoi,
-      contatoCampoValidouErro: this.contatoValidouErro,
-    }
-  };
 
 }
 
