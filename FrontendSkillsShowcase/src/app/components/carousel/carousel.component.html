@@ -1,0 +1,24 @@
+<div *ngIf="showCarousel" class="container">
+    <ngb-carousel #carousel *ngIf="courses.length > 0" [interval]="0" class="carousel-container">
+      <ng-template ngbSlide *ngFor="let course of courses">
+        <div class="picsum-img-wrapper">
+          <img [src]="course.image" (click)="navigateToCourse(course.path)" class="d-block w-100" alt="{{ course.path }}">
+        </div>
+        <div class="carousel-caption">
+          <h3>{{ course.path }}</h3>
+        </div>
+      </ng-template>
+      <button (click)="carousel.prev()">
+        Anterior
+      </button>
+      <button (click)="carousel.next()">
+        Próximo
+      </button>
+    </ngb-carousel>
+  </div>
+  
+  <div *ngIf="!showCarousel">
+    <button (click)="backToCarousel()">Voltar</button>
+    <router-outlet></router-outlet>
+  </div>
+  
