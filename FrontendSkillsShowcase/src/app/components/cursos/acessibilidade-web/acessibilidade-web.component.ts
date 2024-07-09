@@ -2,24 +2,27 @@ import { Component, OnInit } from '@angular/core';
 import { Title, Meta } from '@angular/platform-browser';
 import { NgClass } from '@angular/common';
 import { UtilsService } from '../../../services/utils.service';
+import { FooterA11yComponent } from "./footer-a11y/footer-a11y.component";
+import { HeaderA11yComponent } from "./header-a11y/header-a11y.component";
+import { ContactA11yComponent } from "./contact-a11y/contact-a11y.component";
+import { HighlightA11yComponent } from "./highlight-a11y/highlight-a11y.component";
+import { DifferentialA11yComponent } from "./differential-a11y/differential-a11y.component";
+import { AboutA11yComponent } from "./about-a11y/about-a11y.component";
+import { PlansA11yComponent } from "./plans-a11y/plans-a11y.component";
+import { BlogA11yComponent } from "./blog-a11y/blog-a11y.component";
+import { HighlightsA11yComponent } from "./highlights-a11y/highlights-a11y.component";
+import { InstitutionalA11yComponent } from "./institutional-a11y/institutional-a11y.component";
 
 @Component({
   selector: 'app-acessibilidade-web',
   standalone: true,
-  imports: [NgClass],
+  imports: [NgClass, FooterA11yComponent, HeaderA11yComponent, ContactA11yComponent, HighlightA11yComponent, DifferentialA11yComponent, AboutA11yComponent, PlansA11yComponent, BlogA11yComponent, HighlightsA11yComponent, InstitutionalA11yComponent],
   templateUrl: './acessibilidade-web.component.html',
   styleUrl: './acessibilidade-web.component.scss'
 })
 export class AcessibilidadeWebComponent implements OnInit {
 
   contatoApeperia: string = 'contato@apeperia.com';
-  botaoAtivo: number = 0;
-  modal: boolean = false;
-  classeAtiva: Record<string, boolean> = {};
-  contatoSucesso: boolean = false;
-  contatoErro: boolean = false;
-  contatoValidouFoi: boolean = false;
-  contatoValidouErro: boolean = false;
 
   constructor(
     private titleService: Title,
@@ -41,27 +44,6 @@ export class AcessibilidadeWebComponent implements OnInit {
   adicionaLinksTags(): void {
     this.utilsService.adicionaLinkTag('stylesheet', 'https://fonts.googleapis.com/css?family=Montserrat:300,400,700|Open+Sans:300,400,700');
   }
-
-  carosselJs(noticia: number): void {
-    this.botaoAtivo = noticia;
-  }
-
-  abriModal(): void {
-    this.modal = true;
-  }
-
-  fechaModal(): void {
-    this.modal = false;
-  }
-
-  selecionaClasse(): void {
-    this.classeAtiva = {
-      contatoCampoSucesso: this.contatoSucesso,
-      contatoCampoErro: this.contatoErro,
-      contatoCampoValidouFoi: this.contatoValidouFoi,
-      contatoCampoValidouErro: this.contatoValidouErro,
-    }
-  };
 
 }
 
