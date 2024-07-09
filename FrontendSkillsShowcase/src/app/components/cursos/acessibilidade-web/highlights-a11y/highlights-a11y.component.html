@@ -1,0 +1,51 @@
+<section class="secaoDestaques">
+    <div class="container">
+      <h2 class="secaoDestaques-titulo tituloPadrao">DESTAQUES</h2>
+
+      <a href="http://blog.apeperia.com.br/design/conheca-primeiras-etapas-criacao-logotipo-teste-teste" class="secaoDestaques-link" aria-labelledby="tituloDestaque1">
+        <figure class="secaoDestaques-destaque">
+          <img src="../../../assets/acessibilidade-web/comecando-criar-logotipo.png" class="secaoDestaques-destaque-img" alt="Ferramentas de designer. Ilustração">
+          <figcaption class="secaoDestaques-destaque-titulo"  id="tituloDestaque1">
+            Conheça as primeiras etapas na criação de um logotipo
+          </figcaption>
+        </figure>
+      </a>
+
+      <a href="http://blog.apeperia.com.br/design/dicas-como-fotografar-com-celular" class="secaoDestaques-link" aria-labelledby="tituloDestaque2">
+        <figure class="secaoDestaques-destaque">
+          <img src="../../../assets/acessibilidade-web/dicas-fotografia.png" class="secaoDestaques-destaque-img" alt="Moça mostrando câmera para rapaz">
+          <figcaption class="secaoDestaques-destaque-titulo"  id="tituloDestaque2">
+            Veja dicas de como fotografar usando seu celular
+          </figcaption>
+        </figure>
+      </a>
+
+      <button (click)="abriModal()" class="secaoDestaques-form-botao btnPadrao btnPadrao--pequeno" id="abreDialog">
+        Receber destaques por email
+      </button>
+    </div>
+
+    <div class="dialogNewsletter" id="dialogNewsletter" [ngClass]="{ 'dialogNewsletter--aberto': modal }">
+      <div class="dialogNewsletter-body">
+
+        <h2 class="dialogNewsletter-titulo">News sem spam</h2>
+        <h3 class="dialogNewsletter-texto">
+          Assine nossa newsletter para receber notícias técnicas sem spam!
+        </h3>
+        <form class="dialogNewsletter-form">
+          <label class="dialogNewsletter-label">
+            Email:
+          </label>
+          <input type="text" class="dialogNewsletter-campo" placeholder="Digite seu e-mail...">
+          <button class="dialogNewsletter-btn">
+            Assinar newsletter
+          </button>
+          <button (click)="fechaModal()" class="dialogNewsletter-fechar">
+            X
+          </button>
+        </form>
+      </div>
+      <div class="dialogNewsletter-overlay"></div>
+    </div> <!--fim .dialogNewsletter-->
+
+  </section> <!--fim .secaoDestaques-->

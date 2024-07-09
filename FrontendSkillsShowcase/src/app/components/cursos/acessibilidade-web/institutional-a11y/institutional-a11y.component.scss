@@ -1,0 +1,60 @@
+.container {
+    width: 1200px;
+    width: 800px;
+    padding-left: 0;
+    padding-right: 0;
+    padding: 3.5em 2em;
+}
+
+.secaoInstitucional {
+    color: #666;
+    text-align: center;
+}
+
+.secaoInstitucional-endereco {
+    font-size: 1.5em;
+    font-style: italic;
+    line-height: 1.5;
+    margin: 1.2em 0;
+}
+
+.secaoInstitucional-telefone {
+    font-size: 1.2em;
+}
+
+.secaoInstitucional-video {
+    width: 100%;
+    max-width: 550px;
+    display: inline-block;
+    margin-top: 30px;
+}
+
+@media (min-width: 830px) {
+
+    .secaoInstitucional-coluna {
+        float: left;
+        text-align: left;
+        width: 40%;
+    }
+
+    .secaoInstitucional-video {
+        width: 40%;
+        margin-top: 0;
+    }
+}
+
+@media (min-width: 830px) {
+    .container {
+      width: 1200px;
+      width: 800px;
+      padding-left: 0;
+      padding-right: 0;
+      padding: 3.5em 2em;
+    }
+  }
+  
+  @media (min-width: 1065px) {
+    .container {
+      width: 1000px;
+    }
+}

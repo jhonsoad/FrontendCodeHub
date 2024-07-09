@@ -1,74 +1,74 @@
 .container {
-    padding: 3.5em 5%;
-    margin: 0 auto;
-    max-width: 1000px;
+  padding: 3.5em 5%;
+  margin: 0 auto;
+  max-width: 1000px;
 }
 
 .rodape {
-    background-color: #333;
-    text-align: center;
+  background-color: #333;
+  text-align: center;
 }
-  
+
 .rodape-social {
-margin: 20px 0 10px 0;
+  margin: 20px 0 10px 0;
 }
 
 .rodape-social li {
-display: inline-block;
+  display: inline-block;
 }
 
 .rodape-social-link {
-width: 42px;
-height: 42px;
-border: 1px solid #fff;
-margin: 0 10px;
-text-indent: -999px;
-overflow: hidden;
-border: 0;
-display: block;
+  width: 42px;
+  height: 42px;
+  border: 1px solid #fff;
+  margin: 0 10px;
+  text-indent: -999px;
+  overflow: hidden;
+  border: 0;
+  display: block;
 }
 
 .rodape-social-link--facebook {
-background-image: url(../../../../../assets/acessibilidade-web/facebook.png);
+  background-image: url(../../../../../assets/acessibilidade-web/facebook.png);
 }
 
 .rodape-social-link--twitter {
-background-image: url(../../../../../assets/acessibilidade-web/twitter.png);
+  background-image: url(../../../../../assets/acessibilidade-web/twitter.png);
 }
 
 .rodape-social-link--instagram {
-background-image: url(../../../../../assets/acessibilidade-web/instagram.png);
+  background-image: url(../../../../../assets/acessibilidade-web/instagram.png);
 }
 
 .rodape-nav-item {
-display: inline-block;
-margin: 0 8px;
+  display: inline-block;
+  margin: 0 8px;
 }
 
 .rodape-nav-link {
-color: #fff;
-text-decoration: none;
-line-height: 3;
+  color: #fff;
+  text-decoration: none;
+  line-height: 3;
 }
 
 .rodape-nav-link:hover,
 .rodape-nav-link:focus {
-text-decoration: underline;
+  text-decoration: underline;
 }
 
 @media (min-width: 830px) {
 
-.rodape-logo {
+  .rodape-logo {
     max-height: 50px;
     display: block;
-}
+  }
 
-.rodape .container{
+  .rodape .container {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    align-items: center;    
-    }
+    align-items: center;
+  }
 
 }
 
@@ -82,7 +82,7 @@ text-decoration: underline;
   }
 }
 
-@media (min-width: 1065px)  {
+@media (min-width: 1065px) {
   .container {
     width: 1000px;
   }
