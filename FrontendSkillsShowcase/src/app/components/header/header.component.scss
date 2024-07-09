@@ -1,0 +1,27 @@
+.header {
+  color: var(--cor-secundaria);
+  background-color: var(--cor-primaria);
+  padding: 2% 0% 0% 15%;
+}
+
+.header__menu{
+  display: flex;
+  gap: 80px;
+}
+
+.header__menu__link {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--cor-terciaria);
+  text-decoration: none;
+}
+
+@media (max-width: 1200px) {
+  .header {
+    padding: 10%;
+  }
+
+  .header__menu {
+    justify-content: center;
+  }
+}
