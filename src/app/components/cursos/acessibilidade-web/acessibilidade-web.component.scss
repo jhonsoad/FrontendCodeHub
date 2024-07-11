@@ -1,3 +1,7 @@
+.secaoDestaque {
+  background-image: url(../../../../assets/acessibilidade-web/bg-intro.jpg);
+}
+
 //Cabeçalho
 
 //Contato Campo
@@ -8,42 +12,42 @@
 
 //Form Contato
 
-.formContato {
-  width: 90%;
-  margin: 0 auto;
-  text-align: left;
-}
+// .formContato {
+//   width: 90%;
+//   margin: 0 auto;
+//   text-align: left;
+// }
 
-.formContato-validacao {
-  display: block;
-  text-align: left;
-}
+// .formContato-validacao {
+//   display: block;
+//   text-align: left;
+// }
 
-.formContato-cta {
-  width: 100%;
-  margin: .5em 0;
-}
+// .formContato-cta {
+//   width: 100%;
+//   margin: .5em 0;
+// }
 
-.formContato-cta {
-  margin-top: 1em;
-  display: inline-block;
-  background: transparent;
-  color: #B72E2E;
-  border: 1px solid #B72E2E;
-  width: 100%;
-}
+// .formContato-cta {
+//   margin-top: 1em;
+//   display: inline-block;
+//   background: transparent;
+//   color: #B72E2E;
+//   border: 1px solid #B72E2E;
+//   width: 100%;
+// }
 
-.formContato-cta:hover,
-.formContato-cta:focus {
-  color: #fff;
-  background-color: #B72E2E;
-}
+// .formContato-cta:hover,
+// .formContato-cta:focus {
+//   color: #fff;
+//   background-color: #B72E2E;
+// }
 
-.formContato-endereco {
-  color: #666;
-  margin: 1em 0;
-  text-align: center;
-}
+// .formContato-endereco {
+//   color: #666;
+//   margin: 1em 0;
+//   text-align: center;
+// }
 
 //Lista de Artigos
 

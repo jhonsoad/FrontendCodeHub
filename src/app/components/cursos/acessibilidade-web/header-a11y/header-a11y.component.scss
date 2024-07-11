@@ -4,11 +4,11 @@
     max-width: 1000px;
 }
 
+ul {
+    list-style: none;
+}
 
 .cabecalho {
-    position: absolute;
-    top: -2.5em;
-    left: 50%;
     transform: translate(-50%);
     text-align: center;
     width: 100%;
