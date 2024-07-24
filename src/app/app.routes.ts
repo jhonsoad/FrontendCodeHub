@@ -5,10 +5,14 @@ import { JsCriePaginasDinamicasComponent } from './components/cursos/js-crie-pag
 import { JsManipulandoODOMComponent } from './components/cursos/js-manipulando-o-dom/js-manipulando-o-dom.component';
 import { JsProgramandoLinguagemWebComponent } from './components/cursos/js-programando-linguagem-web/js-programando-linguagem-web.component';
 import { LogicaComponent } from './components/cursos/logica/logica.component';
-import { IntegrationComponent } from './integration/integration.component';
+import { HomeComponent } from './pages/home/home.component';
+import { ProjectsComponent } from './pages/projects/projects.component';
+import { AboutComponent } from './pages/about/about.component';
 
 export const routes: Routes = [
-    { path: '', component: IntegrationComponent},
+    { path: '', component: HomeComponent},
+    { path: 'projects', component: ProjectsComponent},
+    { path: 'about', component: AboutComponent},
     { path: 'AcessibilidadeWeb', component: AcessibilidadeWebComponent },
     { path: 'JsArmazenandoDadosNoNavegador', component: JsArmazenandoDadosNoNavegadorComponent },
     { path: 'JsCriePaginasDinamicas', component: JsCriePaginasDinamicasComponent },
