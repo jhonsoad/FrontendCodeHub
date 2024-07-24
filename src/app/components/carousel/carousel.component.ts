@@ -33,11 +33,11 @@ export class CarouselComponent {
   @ViewChild('carousel', { static: true }) carousel?: NgbCarousel;
 
   courses = [
-    { path: 'AcessibilidadeWeb', image: 'assets/images/acessibilidade-web.jpeg' },
-    { path: 'JsArmazenandoDadosNoNavegador', image: 'assets/images/armazenando-dados-navegador.webp' },
-    { path: 'JsCriePaginasDinamicas', image: 'assets/images/crie-paginas-dinamicas.webp' },
-    { path: 'JsManipulandoODOM', image: 'assets/images/manipulando-dom.webp' },
-    { path: 'JsProgramandoLinguagemWeb', image: 'assets/images/programando-linguagem-web.jpg' },
+    { path: 'Acessibilidade Web', image: 'assets/images/acessibilidade-web.jpeg' },
+    { path: 'Js ArmazenandoDados no Navegador', image: 'assets/images/armazenando-dados-navegador.webp' },
+    { path: 'Js Crie Paginas Dinamicas', image: 'assets/images/crie-paginas-dinamicas.webp' },
+    { path: 'Js Manipulando O DOM', image: 'assets/images/manipulando-dom.webp' },
+    { path: 'Js Programando na Linguagem Web', image: 'assets/images/programando-linguagem-web.jpg' },
     { path: 'Logica', image: 'assets/images/logica.jpg' }
   ];
 
