@@ -1,0 +1,124 @@
+TS é componente json-server --watch pets.json
+HTML é template
+data binding vincular dados
+unidirecional ("one-way data binding")ex: Interpolation ({{}}): Usado para renderizar o valor de uma expressão em um template. Por exemplo: <p>{{ meuValor }}</p>.
+
+Binding de propriedade ([property]="value"): Permite vincular o valor de uma propriedade do componente a um atributo ou propriedade de um elemento HTML. Por exemplo: <input [value]="meuValor">.
+
+Binding de evento ((event)="handler()"): Permite vincular um evento do elemento HTML a um método no componente. Por exemplo: <button (click)="onClick()">.
+
+bidirecional ("two-way data binding") ex: ([(ngModel)]="value"): Combinação de binding de propriedade e binding de evento, permitindo que os dados fluam em ambas as direções entre o componente e o template. É frequentemente usado em elementos de formulário, como <input> e <select>.
+
+Rotas
+a criar o projeto é perguntado se queremos gerar o arquivo de rotas se for criado o nome dele é app-routing.module.ts, na const routes do tipo Routes que recebe um array "const routes: Routes = []" pra cada pagina que eu quiser acessar eu defino o path e o componente que quero atrelar ao path {path:'meuComponete',component: meuComponente} nesse caso ao acessar o projeto e o complemento do path acessamos o componente ex: localhost:4200/meuComponente tambem temos que usar o seletor <app-routing></app-routing> para chamar esses componentes no app-component
+podemos criar um path com valor '' para ser o acesso padrao sem ter o /complemento, e para usar isso nos precisamos colocar a propriedade {path:'', redirectTo:'meuComponente', pathMatch: 'full'} para que o acesso a url sem o complementoredirecione para algum componente, e para chamar esse componentes adicionamos em um elemento html como um <button> a propriedade routerLink='meuComponete' com o valor de um path criado, em menus de navegacao podemos aplicar uma classe css ao link ativo atualmente com routerLinkActive="classe-ativa" coloque essa propriedade e a classe que que adicionar
+Além do routerLink que usamos no template, também podemos fazer a navegacao para outra tela pelo component usando o navigate do servico Router, no constructor (private router: Router) importando do @angular/router 
+navegar(){
+	this.router.navigate(['/pathDoAppRoutingModule'])
+} ao chamar o metodo navegar vai abrir a tela informada
+
+diretiva *ngFor="let minhaVariavelDeclaradaAqui of meuArrayDeclaradoNoTs" com isso ele vai fazer um for criando os elementos html na quantidade do array
+
+diretiva *ngIf="listaPensamentos.lenght > 0, else semPensamento" usamos a condição a ser verificada pode ser verdadeira ou falsa nesse caso verifica o tamanho de um array se ele for maior que 0 mostra o conteudo que esta nos elementos filhos de ode essa diretiva está, depois da virgula definimos o else passando um template a ser renderizado identificado por uma referencia local nesse caso o semPensamneto <ng-tempate #semPensamento></ng-tempate>
+
+diretiva <div [ngClass]="{'classe-1': condição1, 'classe-2': condição2, ...}"></div> é usada para adicionar classes css em elementos html com base em condições especificas entre seu parenteses podemos colocar tambem "['class1', 'class2', dynamicClass]" array de classes e "getDynamicClasses()" chamar um metodo que retorna uma string o nome da classe css
+
+Decorator @Input permite que uma propriedade em seu componente recebe dados do componete pai que esta chamando esse componente com o seletor ex: no componete tem a propriedade @Input childValue: string; quando chamo o componente que tem essa propriedade em outro componente <app-child [childValue]="parentData"></app-child> eu passo essa propriedade que tem o @Input entre conchetes na chamada do componente e atrelo o valor dela com uma variavel do componente pai que nesse caso é a parentData.
+
+Para testar retorno de uma api rest podemos usar o json-server, precisamos criar uma interface com o formato do reponse que vira do backend para padronizar o formato, então a variavel que ira receber os dados desse response dev ser do tipo da interface criada
+
+Services as services criadas vem com o decorator @Injectable({providedIn: 'root'}) esse decorator é usado em classes para indicar que essa classe pode ser usada com dependências indicando que essa classe pode ser usada como serviço que possui uma responsabilidade especifica e pode ser injetada em outros componentes, servicos ou modulos para fornecer funcionalidades reutilizaveis.
+A injeção de depêndencia é um padrão de design onde as dependências de uma classe são fornecidas externamente em vez de serem criadas dentro da própria classe, com a opção providedIn: 'root' dentro do injectable indica que o servico pode ser injetado em qualquer lugar da aplicação sem essa opção seria necessário fazer a configuração manual da injeção de dependencia em um modulo no array providers, a injeção de dependencia é feita via contructor ex:
+import { HttpClient } from '@angular/common/http'; 
+  constructor(private http: HttpClient) { }
+dessa forma o httpClient é injetado na minha service sem ele precisaria criar uma intancia do httpClient e passar as configs fazendo que outra instancia seja criada perderia a testabilidade e a modularidade do código criando a instancia em varios locais
+const httpClient = new HttpClient(/* opções */);
+
+HttpClient é um servico para fazer requisições http e consumir apis para usalo importamos o seu modulo "HttpClientModule" no array de imports do app.module depois fazemos a injeção de dependência dele via constructor e podemos usar seu metodo http para fazer requisições passando o metodo que usaremos nesse caso o get, podemos tipar o retorno usando o diamante "<>" e enter parenteses a url da api ex: 
+listar(){
+	return this.http.get<Pensamento[]>(this.API)
+}
+criar(pensamento: Pensamento): Observable<Pensamento> {
+	return this.http.post<Pensamento>(this.API, pensamento);
+}
+esse metodo nos retornara um observable do tipo Pensamento[] e para eu conseguir receber esses dados eu preciso usar um subscribe para receber as informações de api que agora esta sendo observada, ao chamar esse metodo listar de uma service em um componete ficaria assim:
+ngOnInit(): void {
+	this.service.listar().subscribe((response)=> {
+		this.lista = response;
+	})
+}
+this.service.criar(this.pensamento).subscribe();
+
+usamos o subscribe para receber o retorno do listar() guardamos a resposta na propriedade response e colocamos em uma variavel global
+para fazermos o post precisamos passar como parametro a url da api e o dado que vamos colocar nela
+para excluir um elemento com httpClient o metodo precisa receber um parametro que nesse caso é o id vai se do tipo observable da interface criada, criamos uma variavel que recebe o a url da api com o id no final e retornamos a exclusão com http.delete
+excluir(id: number): Observable<Pensamento> {
+ const url = `${this.API}/${id}`
+ return this.http.delete<Pensamento>(url)
+}
+Classe ActivatedRoute é usada para acessar informações sobre a rota atualmente ativada no app, quando navegamos pelos componentes usando o roteamento cada visualização corresponde a uma rota especifica.  O ActivatedRoute fornece informações sobre essa rota, como parâmetros da URL, dados estáticos definidos na configuração de rota e muito mais, esses são alguns metodos dessa classe
+params: Um Observable que fornece os parâmetros da URL da rota.
+queryParams: Um Observable que fornece os parâmetros de consulta da URL da rota.
+data: Um Observable que fornece os dados estáticos definidos na configuração de rota.
+snapshot: Uma propriedade que fornece uma captura instantânea (snapshot) das informações da rota no momento em que o componente foi inicializado.
+url: Um Observable que fornece a URL da rota ativa.
+routeConfig: Proporciona acesso às informações de configuração da rota atual.
+const id = this.route.snapshot.paramMap.get('id') as string; // obtem o id do pensamento
+this.service.buscarPorId(Number(id)).subscribe((pensamento) => { 
+    this.pensamento = pensamento;
+});// chama o busca por id que retorna um observable e atribui o valor ao pensamento
+path: 'pensamentos/excluirPensamento/:id', component: ExcluirPensamentoComponent} para passar um valor variavel a rota usamos o ":"
+para editar usamos o http.put
+  editar(pensamento: Pensamento): Observable<Pensamento> {
+    const url = `${this.API}/${pensamento.id}`
+    return this.http.put<Pensamento>(url, pensamento)
+  }
+
+Formulario reativo
+Module.ts importar no imports ReactiveFormModule
+cria uma propriedade do tipo FormGroup com ! no final para nao dar erro
+no contrutor injeta o servico formBuilder: FormBuilder servico responsavel pela construcao do formulario
+
+ngOnInit(): void {
+    this.formulario = new FormGroup({
+      conteudo: new FormControl(''),
+      autoria: new FormControl(''),
+      modelo: new FormControl('')
+    })
+  }
+  
+  Na tag <form> do html, é necessário fazer um property binding por meio da diretiva formGroup e atribuir a ela o valor da propriedade formulario, criada na classe typescript. Além disso, é necessário incluir em cada input a propriedade formControlName, com o nome declarado na classe.
+
+<form [formGroup]="formulario">
+
+formControlName="conteudo"
+
+formControlName="autoria"
+
+formControlName="modelo"
+
+O FormGroup representa um grupo de dados no formulário. Você pode ter vários grupos em um único formulário, o que facilita e organiza o controle dos dados.
+
+O FormControlName é uma diretiva que sincroniza os controles em um formGroup através da sincronização por meio do nome da propriedade do formGroup, como fiz com o conteúdo, autoria e modelo.
+
+<p>{{ formulario.get('conteudo')?.value }}</p>
+
+Em um formulário reativo, você sempre pode acessar qualquer controle de formulário através do método get, passando para ele o campo e a propriedade que deseja acessar. Como queremos o valor do campo, devemos passar a propriedade value.
+
+Formulario template driven
+na tag form criamos uma variavel de referencia que cria uma instancia do ngForm ex: #f="ngForm" e importar o formsModule no module
+Colocamos o ngSubmit atrelado a um metodo na tag form ex:(ngSubmit)="cadastrar(f)"
+no metodo cadastrar(form: NgForm) recebera um parametro o formulario
+.ng-touched.ng-invalid:not(form){
+  border-color: red;
+  color: red;
+} altera um elemento de duas classes ja existentes em um form e o not é para não aplicar isso a tag form no caso sera somente para os inputs ng-touched/ng-untouched, ng-dirty/ng-pristine e ng-valid/ng-invalid
+<span class="erro__texto" *ngIf="f.controls['nome']?.errors?.['required']">O campo de nome deve ser preenchido.</span> para usar mensagens de erro no campo é preciso colocar o ngModel, no input do tipo email podemos adicionara a diretiva validadora 'email' <input required email> ou usar o pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" com essa expressão regular os dois juntos não, para telefone tem essa expressão regular no pattern "(\(?\d{2}\)?\s?)(\d{5}\-?\d{4})"
+<input name="nome" id="nome" #nome="ngModel">
+<span class="erro__texto" *ngIf="nome?.errors?.['required']">
+podemos usar uma variavel de referencia no input com o valor ngModel pra referenciala no lugar de f.controls['nome']
+
+ng g directives para criar diretivas personalizadas
+@Directive em vez de component
+
+Usar a api do viaCep para buscar o endereco digitado, pegar o retorno e usar o form.patchValue({endereco: res.logradouro}) para preencher os campos pela variavel de referencia #endereco="ngModel"

@@ -1,0 +1,6 @@
+/* Memoteca */
+main {
+    background: url(/assets/imagens/memoteca/background-completo.png);
+    background-size: cover;
+    min-height: 60vh;
+  }
