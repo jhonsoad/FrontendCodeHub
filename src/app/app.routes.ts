@@ -13,10 +13,10 @@ export const routes: Routes = [
     { path: '', component: HomeComponent},
     { path: 'projects', component: ProjectsComponent},
     { path: 'about', component: AboutComponent},
-    { path: 'AcessibilidadeWeb', component: AcessibilidadeWebComponent },
-    { path: 'JsArmazenandoDadosNoNavegador', component: JsArmazenandoDadosNoNavegadorComponent },
-    { path: 'JsCriePaginasDinamicas', component: JsCriePaginasDinamicasComponent },
-    { path: 'JsManipulandoODOM', component: JsManipulandoODOMComponent },
-    { path: 'JsProgramandoLinguagemWeb', component: JsProgramandoLinguagemWebComponent },
-    { path: 'Logica', component: LogicaComponent }
+    { path: 'acessibilidadeWeb', component: AcessibilidadeWebComponent },
+    { path: 'jsArmazenandoDadosNoNavegador', component: JsArmazenandoDadosNoNavegadorComponent },
+    { path: 'jsCriePaginasDinamicas', component: JsCriePaginasDinamicasComponent },
+    { path: 'jsManipulandoODOM', component: JsManipulandoODOMComponent },
+    { path: 'jsProgramandoLinguagemWeb', component: JsProgramandoLinguagemWebComponent },
+    { path: 'logica', component: LogicaComponent }
 ];

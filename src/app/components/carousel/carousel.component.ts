@@ -33,12 +33,12 @@ export class CarouselComponent {
   @ViewChild('carousel', { static: true }) carousel?: NgbCarousel;
 
   courses = [
-    { path: 'Acessibilidade Web', image: 'assets/images/acessibilidade-web.jpeg' },
-    { path: 'Js ArmazenandoDados no Navegador', image: 'assets/images/armazenando-dados-navegador.webp' },
-    { path: 'Js Crie Paginas Dinamicas', image: 'assets/images/crie-paginas-dinamicas.webp' },
-    { path: 'Js Manipulando O DOM', image: 'assets/images/manipulando-dom.webp' },
-    { path: 'Js Programando na Linguagem Web', image: 'assets/images/programando-linguagem-web.jpg' },
-    { path: 'Logica', image: 'assets/images/logica.jpg' }
+    { path: 'acessibilidadeWeb', title: 'Acessibilidade Web', image: 'assets/images/acessibilidade-web.jpeg' },
+    { path: 'jsArmazenandoDados no Navegador', title: 'Armazenado dados no navegador', image: 'assets/images/armazenando-dados-navegador.webp' },
+    { path: 'jsCriePaginasDinamicas', title: 'Js Crie Paginas Dinamicas', image: 'assets/images/crie-paginas-dinamicas.webp' },
+    { path: 'jsManipulandoODOM', title: 'Js Manipulando O DOM', image: 'assets/images/manipulando-dom.webp' },
+    { path: 'jsProgramandoLinguagemWeb', title: 'Js Programando na Linguagem da Web', image: 'assets/images/programando-linguagem-web.jpg' },
+    { path: 'logica', title: 'Lógica', image: 'assets/images/logica.jpg' }
   ];
 
   showCarousel = true;

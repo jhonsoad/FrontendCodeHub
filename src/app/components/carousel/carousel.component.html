@@ -5,7 +5,7 @@
           <img [src]="course.image" (click)="navigateToCourse(course.path)" class="w-100" alt="{{ course.path }}">
         </div>
         <div class="carousel-title">
-          <h3>{{ course.path }}</h3>
+          <h3>{{ course.title }}</h3>
         </div>
       </ng-template>
       <button (click)="carousel.prev()">
