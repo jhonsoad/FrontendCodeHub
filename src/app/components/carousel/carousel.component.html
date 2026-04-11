@@ -1,24 +1,32 @@
-<div *ngIf="showCarousel" class="container">
-    <ngb-carousel #carousel *ngIf="courses.length > 0" [interval]="0" class="carousel-container">
-      <ng-template ngbSlide *ngFor="let course of courses">
-        <div>
-          <img [src]="course.image" (click)="navigateToCourse(course.path)" class="w-100" alt="{{ course.path }}">
-        </div>
-        <div class="carousel-title">
-          <h3>{{ course.path }}</h3>
-        </div>
-      </ng-template>
-      <button (click)="carousel.prev()">
-        Anterior
-      </button>
-      <button (click)="carousel.next()">
-        Próximo
-      </button>
-    </ngb-carousel>
+@if (showCarousel) {
+  <div class="container">
+    @if (courses.length > 0) {
+      <ngb-carousel #carousel [interval]="0" class="carousel-container">
+        @for (course of courses; track course) {
+          <ng-template ngbSlide>
+            <div>
+              <img [src]="course.image" (click)="navigateToCourse(course.path)" class="w-100" alt="{{ course.path }}">
+            </div>
+            <div class="carousel-title">
+              <h3>{{ course.path }}</h3>
+            </div>
+          </ng-template>
+        }
+        <button (click)="carousel.prev()">
+          Anterior
+        </button>
+        <button (click)="carousel.next()">
+          Próximo
+        </button>
+      </ngb-carousel>
+    }
   </div>
-  
-  <div *ngIf="!showCarousel">
+}
+
+@if (!showCarousel) {
+  <div>
     <button (click)="backToCarousel()">Voltar</button>
     <router-outlet></router-outlet>
   </div>
-  
+}
+

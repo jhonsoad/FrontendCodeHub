@@ -2,11 +2,10 @@ import { NgClass } from '@angular/common';
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-highlights-a11y',
-  standalone: true,
-  imports: [NgClass],
-  templateUrl: './highlights-a11y.component.html',
-  styleUrl: './highlights-a11y.component.scss'
+    selector: 'app-highlights-a11y',
+    imports: [NgClass],
+    templateUrl: './highlights-a11y.component.html',
+    styleUrl: './highlights-a11y.component.scss'
 })
 export class HighlightsA11yComponent {
 

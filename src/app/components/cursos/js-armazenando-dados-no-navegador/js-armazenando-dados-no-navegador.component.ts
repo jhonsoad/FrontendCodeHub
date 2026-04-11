@@ -2,15 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { Title, Meta } from '@angular/platform-browser';
 import { UtilsService } from '../../../services/utils.service';
 import {FormsModule} from '@angular/forms';
-import { NgFor } from '@angular/common';
+
 import { Item } from './item';
 
 @Component({
-  selector: 'app-js-armazenando-dados-no-navegador',
-  standalone: true,
-  imports: [FormsModule, NgFor],
-  templateUrl: './js-armazenando-dados-no-navegador.component.html',
-  styleUrl: './js-armazenando-dados-no-navegador.component.scss'
+    selector: 'app-js-armazenando-dados-no-navegador',
+    imports: [FormsModule],
+    templateUrl: './js-armazenando-dados-no-navegador.component.html',
+    styleUrl: './js-armazenando-dados-no-navegador.component.scss'
 })
 export class JsArmazenandoDadosNoNavegadorComponent implements OnInit{
 

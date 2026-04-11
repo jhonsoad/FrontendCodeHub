@@ -2,11 +2,10 @@ import { NgClass } from '@angular/common';
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-contact-a11y',
-  standalone: true,
-  imports: [NgClass],
-  templateUrl: './contact-a11y.component.html',
-  styleUrl: './contact-a11y.component.scss'
+    selector: 'app-contact-a11y',
+    imports: [NgClass],
+    templateUrl: './contact-a11y.component.html',
+    styleUrl: './contact-a11y.component.scss'
 })
 export class ContactA11yComponent {
 
