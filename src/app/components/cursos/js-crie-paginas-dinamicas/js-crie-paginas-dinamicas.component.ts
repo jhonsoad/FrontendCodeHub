@@ -2,11 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { Title, Meta } from '@angular/platform-browser';
 import { UtilsService } from '../../../services/utils.service';
 @Component({
-  selector: 'app-js-crie-paginas-dinamicas',
-  standalone: true,
-  imports: [],
-  templateUrl: './js-crie-paginas-dinamicas.component.html',
-  styleUrl: './js-crie-paginas-dinamicas.component.scss'
+    selector: 'app-js-crie-paginas-dinamicas',
+    imports: [],
+    templateUrl: './js-crie-paginas-dinamicas.component.html',
+    styleUrl: './js-crie-paginas-dinamicas.component.scss'
 })
 export class JsCriePaginasDinamicasComponent implements OnInit {
 

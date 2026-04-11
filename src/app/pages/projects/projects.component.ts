@@ -4,11 +4,10 @@ import { FooterComponent } from "../../components/footer/footer.component";
 import { CarouselComponent } from "../../components/carousel/carousel.component";
 
 @Component({
-  selector: 'app-projects',
-  standalone: true,
-  imports: [HeaderComponent, FooterComponent, CarouselComponent],
-  templateUrl: './projects.component.html',
-  styleUrl: './projects.component.scss'
+    selector: 'app-projects',
+    imports: [HeaderComponent, FooterComponent, CarouselComponent],
+    templateUrl: './projects.component.html',
+    styleUrl: './projects.component.scss'
 })
 export class ProjectsComponent {
 

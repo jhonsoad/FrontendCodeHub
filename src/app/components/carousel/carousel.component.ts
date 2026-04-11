@@ -10,23 +10,22 @@ import { JsProgramandoLinguagemWebComponent } from '../cursos/js-programando-lin
 import { LogicaComponent } from '../cursos/logica/logica.component';
 
 @Component({
-  selector: 'app-carousel',
-  standalone: true,
-  imports: [
-    CommonModule,
-    RouterOutlet,
-    RouterLink,
-    RouterLinkActive,
-    NgbCarouselModule,
-    AcessibilidadeWebComponent,
-    JsArmazenandoDadosNoNavegadorComponent,
-    JsCriePaginasDinamicasComponent,
-    JsManipulandoODOMComponent,
-    JsProgramandoLinguagemWebComponent,
-    LogicaComponent,
-  ],
-  templateUrl: './carousel.component.html',
-  styleUrl: './carousel.component.scss'
+    selector: 'app-carousel',
+    imports: [
+        CommonModule,
+        RouterOutlet,
+        RouterLink,
+        RouterLinkActive,
+        NgbCarouselModule,
+        AcessibilidadeWebComponent,
+        JsArmazenandoDadosNoNavegadorComponent,
+        JsCriePaginasDinamicasComponent,
+        JsManipulandoODOMComponent,
+        JsProgramandoLinguagemWebComponent,
+        LogicaComponent,
+    ],
+    templateUrl: './carousel.component.html',
+    styleUrl: './carousel.component.scss'
 })
 export class CarouselComponent {
   

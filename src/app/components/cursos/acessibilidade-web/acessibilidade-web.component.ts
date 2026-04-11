@@ -14,11 +14,10 @@ import { HighlightsA11yComponent } from "./highlights-a11y/highlights-a11y.compo
 import { InstitutionalA11yComponent } from "./institutional-a11y/institutional-a11y.component";
 
 @Component({
-  selector: 'app-acessibilidade-web',
-  standalone: true,
-  imports: [NgClass, FooterA11yComponent, HeaderA11yComponent, ContactA11yComponent, HighlightA11yComponent, DifferentialA11yComponent, AboutA11yComponent, PlansA11yComponent, BlogA11yComponent, HighlightsA11yComponent, InstitutionalA11yComponent],
-  templateUrl: './acessibilidade-web.component.html',
-  styleUrl: './acessibilidade-web.component.scss'
+    selector: 'app-acessibilidade-web',
+    imports: [NgClass, FooterA11yComponent, HeaderA11yComponent, ContactA11yComponent, HighlightA11yComponent, DifferentialA11yComponent, AboutA11yComponent, PlansA11yComponent, BlogA11yComponent, HighlightsA11yComponent, InstitutionalA11yComponent],
+    templateUrl: './acessibilidade-web.component.html',
+    styleUrl: './acessibilidade-web.component.scss'
 })
 export class AcessibilidadeWebComponent implements OnInit {
 
