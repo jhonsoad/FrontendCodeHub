@@ -1,5 +1,9 @@
 <app-header></app-header>
 <main class="main">
-    <app-carousel></app-carousel>
+    @if (project) {
+      <app-carousel></app-carousel>
+    }@else {
+      <app-under-construction></app-under-construction>
+    }
 </main>
 <app-footer></app-footer>
