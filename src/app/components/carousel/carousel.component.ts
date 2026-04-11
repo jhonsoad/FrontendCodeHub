@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+
 import { Component, ViewChild } from '@angular/core';
 import { Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { NgbCarousel, NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
@@ -12,18 +12,17 @@ import { LogicaComponent } from '../cursos/logica/logica.component';
 @Component({
     selector: 'app-carousel',
     imports: [
-        CommonModule,
-        RouterOutlet,
-        RouterLink,
-        RouterLinkActive,
-        NgbCarouselModule,
-        AcessibilidadeWebComponent,
-        JsArmazenandoDadosNoNavegadorComponent,
-        JsCriePaginasDinamicasComponent,
-        JsManipulandoODOMComponent,
-        JsProgramandoLinguagemWebComponent,
-        LogicaComponent,
-    ],
+    RouterOutlet,
+    RouterLink,
+    RouterLinkActive,
+    NgbCarouselModule,
+    AcessibilidadeWebComponent,
+    JsArmazenandoDadosNoNavegadorComponent,
+    JsCriePaginasDinamicasComponent,
+    JsManipulandoODOMComponent,
+    JsProgramandoLinguagemWebComponent,
+    LogicaComponent
+],
     templateUrl: './carousel.component.html',
     styleUrl: './carousel.component.scss'
 })
