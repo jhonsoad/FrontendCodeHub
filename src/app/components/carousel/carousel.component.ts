@@ -1,27 +1,14 @@
 
 import { Component, ViewChild } from '@angular/core';
-import { Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { Router, RouterOutlet } from '@angular/router';
 import { NgbCarousel, NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
-import { AcessibilidadeWebComponent } from '../cursos/acessibilidade-web/acessibilidade-web.component';
-import { JsArmazenandoDadosNoNavegadorComponent } from '../cursos/js-armazenando-dados-no-navegador/js-armazenando-dados-no-navegador.component';
-import { JsCriePaginasDinamicasComponent } from '../cursos/js-crie-paginas-dinamicas/js-crie-paginas-dinamicas.component';
-import { JsManipulandoODOMComponent } from '../cursos/js-manipulando-o-dom/js-manipulando-o-dom.component';
-import { JsProgramandoLinguagemWebComponent } from '../cursos/js-programando-linguagem-web/js-programando-linguagem-web.component';
-import { LogicaComponent } from '../cursos/logica/logica.component';
+
 
 @Component({
     selector: 'app-carousel',
     imports: [
     RouterOutlet,
-    RouterLink,
-    RouterLinkActive,
     NgbCarouselModule,
-    AcessibilidadeWebComponent,
-    JsArmazenandoDadosNoNavegadorComponent,
-    JsCriePaginasDinamicasComponent,
-    JsManipulandoODOMComponent,
-    JsProgramandoLinguagemWebComponent,
-    LogicaComponent
 ],
     templateUrl: './carousel.component.html',
     styleUrl: './carousel.component.scss'
