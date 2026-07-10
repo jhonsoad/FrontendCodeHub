@@ -82,12 +82,24 @@
           "options": {
             "buildTarget": "FrontendSkillsShowcase:build"
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
+          }
         }
       }
     }
   },
   "cli": {
-    "analytics": "a67df675-0db7-495d-9a8a-19cb81c4aef0"
+    "analytics": "a67df675-0db7-495d-9a8a-19cb81c4aef0",
+    "schematicCollections": [
+      "angular-eslint"
+    ]
   },
   "schematics": {
     "@schematics/angular:component": {
