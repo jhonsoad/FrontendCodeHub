@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { Title, Meta } from '@angular/platform-browser';
 import { UtilsService } from '../../../services/utils.service';
 @Component({
@@ -8,12 +8,10 @@ import { UtilsService } from '../../../services/utils.service';
     styleUrl: './js-crie-paginas-dinamicas.component.scss'
 })
 export class JsCriePaginasDinamicasComponent implements OnInit {
+  private titleService = inject(Title);
+  private metaService = inject(Meta);
+  private utilsService = inject(UtilsService);
 
-  constructor(
-    private titleService: Title,
-    private metaService: Meta,
-    private utilsService: UtilsService
-    ) {}
 
   ngOnInit(): void {
     this.titleService.setTitle('Alura MIDI');

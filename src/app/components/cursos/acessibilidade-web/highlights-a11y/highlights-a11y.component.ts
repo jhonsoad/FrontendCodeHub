@@ -9,7 +9,7 @@ import { Component } from '@angular/core';
 })
 export class HighlightsA11yComponent {
 
-  modal: boolean = false;
+  modal = false;
 
   abriModal(): void {
     this.modal = true;

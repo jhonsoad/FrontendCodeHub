@@ -10,10 +10,10 @@ import { Component } from '@angular/core';
 export class ContactA11yComponent {
 
   classeAtiva: Record<string, boolean> = {};
-  contatoSucesso: boolean = false;
-  contatoErro: boolean = false;
-  contatoValidouFoi: boolean = false;
-  contatoValidouErro: boolean = false;
+  contatoSucesso = false;
+  contatoErro = false;
+  contatoValidouFoi = false;
+  contatoValidouErro = false;
 
   
   selecionaClasse(): void {

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { Title, Meta } from '@angular/platform-browser';
 import { NgClass } from '@angular/common';
 import { UtilsService } from '../../../services/utils.service';
@@ -15,20 +15,17 @@ import { InstitutionalA11yComponent } from "./institutional-a11y/institutional-a
 
 @Component({
     selector: 'app-acessibilidade-web',
-    imports: [NgClass, FooterA11yComponent, HeaderA11yComponent, ContactA11yComponent, HighlightA11yComponent, DifferentialA11yComponent, AboutA11yComponent, PlansA11yComponent, BlogA11yComponent, HighlightsA11yComponent, InstitutionalA11yComponent],
+    imports: [FooterA11yComponent, HeaderA11yComponent, ContactA11yComponent, HighlightA11yComponent, DifferentialA11yComponent, AboutA11yComponent, PlansA11yComponent, BlogA11yComponent, HighlightsA11yComponent, InstitutionalA11yComponent],
     templateUrl: './acessibilidade-web.component.html',
     styleUrl: './acessibilidade-web.component.scss'
 })
 export class AcessibilidadeWebComponent implements OnInit {
+  private titleService = inject(Title);
+  private metaService = inject(Meta);
+  private utilsService = inject(UtilsService);
 
-  contatoApeperia: string = 'contato@apeperia.com';
 
-  constructor(
-    private titleService: Title,
-    private metaService: Meta,
-    private utilsService: UtilsService,
-    ) {  
-  }
+  contatoApeperia = 'contato@apeperia.com';
 
   ngOnInit(): void {
     this.titleService.setTitle('Acessibilidade Web');

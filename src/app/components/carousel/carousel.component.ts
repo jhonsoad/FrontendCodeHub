@@ -1,5 +1,5 @@
 
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, inject } from '@angular/core';
 import { Router, RouterOutlet } from '@angular/router';
 import { NgbCarousel, NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
 
@@ -14,6 +14,8 @@ import { NgbCarousel, NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
     styleUrl: './carousel.component.scss'
 })
 export class CarouselComponent {
+  private router = inject(Router);
+
   
   @ViewChild('carousel', { static: true }) carousel?: NgbCarousel;
 
@@ -27,8 +29,6 @@ export class CarouselComponent {
   ];
 
   showCarousel = true;
-
-  constructor(private router: Router) {}
 
   navigateToCourse(path: string) {
     this.showCarousel = false;

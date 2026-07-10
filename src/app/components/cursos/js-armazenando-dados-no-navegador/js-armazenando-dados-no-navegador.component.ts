@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { Title, Meta } from '@angular/platform-browser';
 import { UtilsService } from '../../../services/utils.service';
 import {FormsModule} from '@angular/forms';
@@ -12,19 +12,17 @@ import { Item } from './item';
     styleUrl: './js-armazenando-dados-no-navegador.component.scss'
 })
 export class JsArmazenandoDadosNoNavegadorComponent implements OnInit{
+  private titleService = inject(Title);
+  private metaService = inject(Meta);
+  private utilsService = inject(UtilsService);
+
 
   formData: any = {
     nome: '',
     quantidade: '',
   };
   itens: Item[] = [];
-  isMyComponent: boolean = true;
-
-  constructor(
-    private titleService: Title,
-    private metaService: Meta,
-    private utilsService: UtilsService
-    ) {}
+  isMyComponent = true;
 
   ngOnInit(): void {
     this.titleService.setTitle('Mochila de viagem');

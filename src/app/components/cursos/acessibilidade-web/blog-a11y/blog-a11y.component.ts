@@ -9,7 +9,7 @@ import { Component } from '@angular/core';
 })
 export class BlogA11yComponent {
 
-  botaoAtivo: number = 0;
+  botaoAtivo = 0;
 
 
   carosselJs(noticia: number): void {
