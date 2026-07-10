@@ -8,16 +8,13 @@ describe('ProjectsComponent', () => {
 
   beforeEach(async () => {
     const activatedRouteSpy = {
-      snapshot: { params: {} }
+      snapshot: { params: {} },
     };
 
     await TestBed.configureTestingModule({
       imports: [ProjectsComponent],
-      providers: [
-        { provide: ActivatedRoute, useValue: activatedRouteSpy }
-      ]
-    })
-    .compileComponents();
+      providers: [{ provide: ActivatedRoute, useValue: activatedRouteSpy }],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(ProjectsComponent);
     component = fixture.componentInstance;

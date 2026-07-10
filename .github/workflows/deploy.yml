@@ -2,31 +2,11 @@ name: Continuous Integration & Deploy
 
 on:
   push:
-    branches: ["main"]
+    branches: ['main']
 
 jobs:
-  # integration-test:
-  #   name: Run Integration Tests
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: Checkout repository
-  #       uses: actions/checkout@v4
-
-  #     - name: Setup Node.js
-  #       uses: actions/setup-node@v4
-  #       with:
-  #         node-version: "24"
-  #         cache: "npm"
-
-  #     - name: Install dependencies
-  #       run: npm ci
-
-  #     - name: Run Jest tests
-  #       run: npm run test -- --ci
-
-  deploy:
-    name: Build and Deploy to S3
-    # needs: integration-test
+  integration-test:
+    name: Run Integration Tests
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -35,8 +15,28 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "24"
-          cache: "npm"
+          node-version: '26'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run Jest tests
+        run: npm run test -- --ci
+
+  deploy:
+    name: Build and Deploy to S3
+    needs: integration-test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '26'
+          cache: 'npm'
 
       - name: Install dependencies
         run: npm ci

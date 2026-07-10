@@ -1,19 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { Title, Meta } from '@angular/platform-browser';
 import { UtilsService } from '../../../services/utils.service';
 @Component({
-    selector: 'app-js-crie-paginas-dinamicas',
-    imports: [],
-    templateUrl: './js-crie-paginas-dinamicas.component.html',
-    styleUrl: './js-crie-paginas-dinamicas.component.scss'
+  selector: 'app-js-crie-paginas-dinamicas',
+  imports: [],
+  templateUrl: './js-crie-paginas-dinamicas.component.html',
+  styleUrl: './js-crie-paginas-dinamicas.component.scss',
 })
 export class JsCriePaginasDinamicasComponent implements OnInit {
-
-  constructor(
-    private titleService: Title,
-    private metaService: Meta,
-    private utilsService: UtilsService
-    ) {}
+  private titleService = inject(Title);
+  private metaService = inject(Meta);
+  private utilsService = inject(UtilsService);
 
   ngOnInit(): void {
     this.titleService.setTitle('Alura MIDI');
@@ -22,7 +19,7 @@ export class JsCriePaginasDinamicasComponent implements OnInit {
   }
 
   adicionaMetaTag(): void {
-    this.metaService.addTag({ charset: 'UTF-8' })
+    this.metaService.addTag({ charset: 'UTF-8' });
     this.metaService.addTag({ httpEequiv: 'X-UA-Compatible', content: 'IE=edge' });
     this.metaService.addTag({ name: 'viewport', content: 'width=device-width, initial-scale=1.0' });
   }
@@ -30,12 +27,13 @@ export class JsCriePaginasDinamicasComponent implements OnInit {
   adicionaLinksTags(): void {
     this.utilsService.adicionaLinkTag('preconnect', 'https://fonts.googleapis.com');
     this.utilsService.adicionaLinkTag('preconnect', 'https://fonts.gstatic.com"', 'crossorigin');
-    this.utilsService.adicionaLinkTag('stylesheet', 'https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&display=swap');
+    this.utilsService.adicionaLinkTag(
+      'stylesheet',
+      'https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&display=swap',
+    );
     this.utilsService.adicionaLinkTag('icon', '../../../assets/js-crie-paginas-dinamicas/bateria.png', 'image/png');
   }
-
 }
-
 
 //-------------- JAVASCRIPT ORIGINAL -----------------------------------------------------------------
 // function tocaSom(seletorAudio) {
@@ -55,7 +53,7 @@ export class JsCriePaginasDinamicasComponent implements OnInit {
 
 //   const tecla = listaDeTeclas[contador];
 //   const instrumento = tecla.classList[1];
-  
+
 //   //template string
 //   const idAudio = `#som_${instrumento}`;
 //   //console.log(idAudio);

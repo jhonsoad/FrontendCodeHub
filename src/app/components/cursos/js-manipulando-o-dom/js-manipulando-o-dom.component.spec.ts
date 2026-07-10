@@ -8,10 +8,9 @@ describe('JsManipulandoODOMComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [JsManipulandoODOMComponent]
-    })
-    .compileComponents();
-    
+      imports: [JsManipulandoODOMComponent],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(JsManipulandoODOMComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

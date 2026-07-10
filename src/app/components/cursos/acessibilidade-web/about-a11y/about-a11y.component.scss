@@ -1,89 +1,87 @@
 .container {
-    padding: 3.5em 5%;
-    margin: 0 auto;
-    max-width: 1000px;
+  padding: 3.5em 5%;
+  margin: 0 auto;
+  max-width: 1000px;
 }
 
 ul {
-    list-style: none;
+  list-style: none;
 }
 
 .secaoSobre {
-    color: #4F4C4C;
+  color: #4f4c4c;
 }
 
 .secaoSobre-texto {
-    margin-bottom: 1em;
+  margin-bottom: 1em;
 }
 
 .secaoSobre-plataformas {
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 1em;
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 1em;
 }
 
 .secaoSobre-imgDestaque {
-    display: none;
+  display: none;
 }
 
-.clearfix:after { 
-    content: "."; 
-    visibility: hidden; 
-    display: block; 
-    height: 0; 
-    clear: both;
+.clearfix:after {
+  content: '.';
+  visibility: hidden;
+  display: block;
+  height: 0;
+  clear: both;
 }
-  
-@media (min-width: 1065px)  {
-    .container {
-        width: 1000px;
-    }
+
+@media (min-width: 1065px) {
+  .container {
+    width: 1000px;
+  }
 }
 
 @media (min-width: 830px) {
+  .container {
+    width: 1200px;
+    width: 800px;
+    padding-left: 0;
+    padding-right: 0;
+    padding: 3.5em 2em;
+  }
 
-    .container {
-        width: 1200px;
-        width: 800px;
-        padding-left: 0;
-        padding-right: 0;
-        padding: 3.5em 2em;
-    }
+  .secaoSobre {
+    text-align: left;
+  }
 
-    .secaoSobre {
-        text-align: left;
-    }
+  .secaoSobre-titulo {
+    text-align: left;
+  }
 
-    .secaoSobre-titulo {
-        text-align: left;
-    }
+  .secaoSobre-imgDestaque {
+    display: block;
+    float: right;
+    margin-left: 2em;
+    margin-bottom: 2em;
+  }
 
-    .secaoSobre-imgDestaque {
-        display: block;
-        float: right;
-        margin-left: 2em;
-        margin-bottom: 2em;
-    }
+  .secaoSobre-plataformas {
+    display: block;
+    padding-top: 1.5em;
+    position: relative;
+  }
 
-    .secaoSobre-plataformas {
-        display: block;
-        padding-top: 1.5em;
-        position: relative;
-    }
+  .secaoSobre-plataformas:before {
+    content: '';
+    height: 1px;
+    width: 45%;
+    background-color: #d9d9d9;
+    position: absolute;
+    top: 4px;
+  }
 
-    .secaoSobre-plataformas:before {
-        content: '';
-        height: 1px;
-        width: 45%;
-        background-color: #D9D9D9;
-        position: absolute;
-        top: 4px;
-    }
-
-    .secaoSobre-plataformas li {
-        display: inline-block;
-        margin-right: 3em;
-        margin: 1em 3em 0 0
-    }
-
+  .secaoSobre-plataformas li {
+    display: inline-block;
+    margin-right: 3em;
+    margin: 1em 3em 0 0;
+  }
 }
