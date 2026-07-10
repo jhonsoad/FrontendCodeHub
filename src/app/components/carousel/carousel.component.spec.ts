@@ -9,7 +9,7 @@ describe('CarouselComponent', () => {
     await TestBed.configureTestingModule({
       imports: [CarouselComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(CarouselComponent);
     component = fixture.componentInstance;

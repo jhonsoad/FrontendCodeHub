@@ -5,18 +5,18 @@ import { NgbCarousel, NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @Component({
-    selector: 'app-carousel',
-    imports: [
+  selector: 'app-carousel',
+  imports: [
     RouterOutlet,
     NgbCarouselModule,
-],
-    templateUrl: './carousel.component.html',
-    styleUrl: './carousel.component.scss'
+  ],
+  templateUrl: './carousel.component.html',
+  styleUrl: './carousel.component.scss'
 })
 export class CarouselComponent {
   private router = inject(Router);
 
-  
+
   @ViewChild('carousel', { static: true }) carousel?: NgbCarousel;
 
   courses = [

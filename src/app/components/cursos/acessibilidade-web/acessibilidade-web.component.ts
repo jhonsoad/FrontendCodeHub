@@ -1,6 +1,5 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { Title, Meta } from '@angular/platform-browser';
-import { NgClass } from '@angular/common';
 import { UtilsService } from '../../../services/utils.service';
 import { FooterA11yComponent } from "./footer-a11y/footer-a11y.component";
 import { HeaderA11yComponent } from "./header-a11y/header-a11y.component";
