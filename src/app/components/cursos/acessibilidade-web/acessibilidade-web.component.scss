@@ -65,12 +65,12 @@ ul {
 }
 
 a {
-  color: #2F80ED;
+  color: #2f80ed;
 }
 
 //Rodape
 
-//Secao Blog 
+//Secao Blog
 
 //Secao Contato
 
@@ -112,8 +112,6 @@ li[aria-hidden='false'] {
   display: block;
 }
 
-
-
 .pularNavegacao,
 .pularNavegacao:active,
 .pularNavegacao:focus,
@@ -126,8 +124,6 @@ li[aria-hidden='false'] {
   color: transparent;
   position: absolute;
 }
-
-
 
 .apenasLeitorDeTela {
   position: absolute;
@@ -143,7 +139,7 @@ li[aria-hidden='false'] {
 .tituloPadrao {
   font-family: 'Montserrat', serif;
   margin-bottom: 1em;
-  color: #4F4C4C;
+  color: #4f4c4c;
   text-align: center;
   text-transform: uppercase;
 }
@@ -151,10 +147,10 @@ li[aria-hidden='false'] {
 .btnPadrao {
   border-radius: 5px;
   border: 0;
-  background-color: #B72E2E;
+  background-color: #b72e2e;
   color: #fff;
   font-size: 1.2em;
-  padding: .3em 1em;
+  padding: 0.3em 1em;
   font-family: 'Open Sans', 'Segoe UI', sans-serif;
   outline: 0;
   text-decoration: none;
@@ -162,7 +158,7 @@ li[aria-hidden='false'] {
 
 .btnPadrao:hover,
 .btnPadrao:focus {
-  background-image: linear-gradient(rgba(255, 255, 255, .05), rgba(255, 255, 255, .05));
+  background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.05));
   cursor: pointer;
 }
 

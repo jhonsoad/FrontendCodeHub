@@ -8,10 +8,9 @@ describe('HeaderA11yComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HeaderA11yComponent]
-    })
-    .compileComponents();
-    
+      imports: [HeaderA11yComponent],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(HeaderA11yComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

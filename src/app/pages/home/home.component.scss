@@ -46,7 +46,7 @@
 .apresentacao_links_subtitulo {
   display: inline-block;
   font-weight: 400;
-  font-size: 1.5rem ;
+  font-size: 1.5rem;
   width: 351px;
   text-align: center;
 }
@@ -74,15 +74,14 @@
 .apresentacao__imagem {
   width: 50%;
 }
-   
+
 @media (max-width: 1200px) {
   .apresentacao {
     flex-direction: column-reverse;
     padding: 5%;
   }
-  
+
   .apresentacao__conteudo {
     width: auto;
   }
 }
-  

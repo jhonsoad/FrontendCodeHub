@@ -8,10 +8,9 @@ describe('AcessibilidadeWebComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AcessibilidadeWebComponent]
-    })
-    .compileComponents();
-    
+      imports: [AcessibilidadeWebComponent],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(AcessibilidadeWebComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

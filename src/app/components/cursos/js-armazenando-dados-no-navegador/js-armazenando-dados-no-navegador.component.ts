@@ -1,21 +1,20 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { Title, Meta } from '@angular/platform-browser';
 import { UtilsService } from '../../../services/utils.service';
-import {FormsModule} from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
 import { Item } from './item';
 
 @Component({
-    selector: 'app-js-armazenando-dados-no-navegador',
-    imports: [FormsModule],
-    templateUrl: './js-armazenando-dados-no-navegador.component.html',
-    styleUrl: './js-armazenando-dados-no-navegador.component.scss'
+  selector: 'app-js-armazenando-dados-no-navegador',
+  imports: [FormsModule],
+  templateUrl: './js-armazenando-dados-no-navegador.component.html',
+  styleUrl: './js-armazenando-dados-no-navegador.component.scss',
 })
-export class JsArmazenandoDadosNoNavegadorComponent implements OnInit{
+export class JsArmazenandoDadosNoNavegadorComponent implements OnInit {
   private titleService = inject(Title);
   private metaService = inject(Meta);
   private utilsService = inject(UtilsService);
-
 
   formData: any = {
     nome: '',
@@ -42,7 +41,6 @@ export class JsArmazenandoDadosNoNavegadorComponent implements OnInit{
     this.utilsService.adicionaLinkTag('stylesheet', 'https://fonts.googleapis.com/css2?family=Roboto&display=swap');
   }
 
-
   listaItens() {
     const itensString = localStorage.getItem('itens');
     this.itens = itensString ? JSON.parse(itensString) : []; //Verifica se a string recuperada existe e, se existir, a converte de volta para um array de itens. Se não existir, define this.itens como um array vazio.
@@ -50,21 +48,25 @@ export class JsArmazenandoDadosNoNavegadorComponent implements OnInit{
 
   enviaForm(evento: Event): void {
     evento.preventDefault();
-    const existe = this.itens.find(item => item.nome === this.formData.nome);//Procura na lista de itens (this.itens) um item que tenha o mesmo nome que o valor inserido no formulário (this.formData.nome). O método find retorna o primeiro item que satisfaz a condição de busca.
-    const newItem: Item = { //Cria um novo item
-      id: existe ? existe.id //Se existe for verdadeiro, o novo item receberá o mesmo ID do item existente (existe.id).Se não houver(existe será undefined)
-      : //Será atribuído um novo ID ao novo item.
-      this.itens.length > 0 ? this.itens[this.itens.length - 1].id + 1 //Se a lista itens não estiver vazia, o novo ID será o último ID na lista mais um (this.itens[this.itens.length - 1].id + 1).
-      : 0,// Caso contrário, se a lista estiver vazia, o ID será 0.
+    const existe = this.itens.find((item) => item.nome === this.formData.nome); //Procura na lista de itens (this.itens) um item que tenha o mesmo nome que o valor inserido no formulário (this.formData.nome). O método find retorna o primeiro item que satisfaz a condição de busca.
+    const newItem: Item = {
+      //Cria um novo item
+      id: existe
+        ? existe.id //Se existe for verdadeiro, o novo item receberá o mesmo ID do item existente (existe.id).Se não houver(existe será undefined)
+        : //Será atribuído um novo ID ao novo item.
+          this.itens.length > 0
+          ? this.itens[this.itens.length - 1].id + 1 //Se a lista itens não estiver vazia, o novo ID será o último ID na lista mais um (this.itens[this.itens.length - 1].id + 1).
+          : 0, // Caso contrário, se a lista estiver vazia, o ID será 0.
       nome: this.formData.nome,
-      quantidade: this.formData.quantidade
+      quantidade: this.formData.quantidade,
     };
 
-    if (existe) {//se o find() encontrou e retornou um item ele é atualizado
-      const index = this.itens.findIndex(item => item.id === existe.id);//findIndex() é utilizado para localizar o índice do item que possui o mesmo id que o item encontrado na busca feita pelo find()
-      this.itens[index] = newItem;//Se o item foi encontrado na posição correspondente do array this.itens é substituído pelo newItem.
+    if (existe) {
+      //se o find() encontrou e retornou um item ele é atualizado
+      const index = this.itens.findIndex((item) => item.id === existe.id); //findIndex() é utilizado para localizar o índice do item que possui o mesmo id que o item encontrado na busca feita pelo find()
+      this.itens[index] = newItem; //Se o item foi encontrado na posição correspondente do array this.itens é substituído pelo newItem.
     } else {
-      this.itens.push(newItem);//Se não o novo item é adicionado ao array
+      this.itens.push(newItem); //Se não o novo item é adicionado ao array
     }
 
     localStorage.setItem('itens', JSON.stringify(this.itens));
@@ -72,11 +74,10 @@ export class JsArmazenandoDadosNoNavegadorComponent implements OnInit{
   }
 
   deleteItem(id: number): void {
-    this.itens = this.itens.filter(item => item.id !== id);
+    this.itens = this.itens.filter((item) => item.id !== id);
     localStorage.setItem('itens', JSON.stringify(this.itens));
   }
 }
-
 
 //-------------- JAVASCRIPT ORIGINAL -----------------------------------------------------------------
 // const form = document.getElementById('novoItem');
@@ -93,7 +94,7 @@ export class JsArmazenandoDadosNoNavegadorComponent implements OnInit{
 //     const nome = evento.target.elements['nome'];
 //     const quantidade = evento.target.elements['quantidade'];
 
-//     const existe = itens.find( elemento => elemento.nome === nome.value ); 
+//     const existe = itens.find( elemento => elemento.nome === nome.value );
 
 //     const itemAtual = {
 //         nome: nome.value,
@@ -110,7 +111,7 @@ export class JsArmazenandoDadosNoNavegadorComponent implements OnInit{
 //         itemAtual.id = itens[itens.length -1] ? (itens[itens.length-1]).id +1 : 0;
 
 //         criaElemento(itemAtual);
-    
+
 //         itens.push(itemAtual);
 //     }
 
@@ -124,7 +125,7 @@ export class JsArmazenandoDadosNoNavegadorComponent implements OnInit{
 
 //     const novoItem = document.createElement('li');
 //     novoItem.classList.add('item');
-    
+
 //     const numeroItem = document.createElement('strong');
 //     numeroItem.innerHTML = item.quantidade;
 //     numeroItem.dataset.id = item.id;

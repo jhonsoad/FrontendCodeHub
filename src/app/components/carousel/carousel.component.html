@@ -1,34 +1,34 @@
 @if (showCarousel) {
-<div class="container">
-  @if (courses.length > 0) {
-  <ngb-carousel #carousel [interval]="0" class="carousel-container">
-    @for (course of courses; track course) {
-    <ng-template ngbSlide>
-      <div>
-        <button type="button" class="btn-image" (click)="navigateToCourse(course.path)"
-          aria-label="Acessar curso: {{ course.path }}">
-          <img [src]="course.image" class="w-100" alt="">
-        </button>
-      </div>
-      <div class="carousel-title">
-        <h3>{{ course.path }}</h3>
-      </div>
-    </ng-template>
+  <div class="container">
+    @if (courses.length > 0) {
+      <ngb-carousel #carousel [interval]="0" class="carousel-container">
+        @for (course of courses; track course) {
+          <ng-template ngbSlide>
+            <div>
+              <button
+                type="button"
+                class="btn-image"
+                (click)="navigateToCourse(course.path)"
+                aria-label="Acessar curso: {{ course.path }}"
+              >
+                <img [src]="course.image" class="w-100" alt="" />
+              </button>
+            </div>
+            <div class="carousel-title">
+              <h3>{{ course.path }}</h3>
+            </div>
+          </ng-template>
+        }
+        <button (click)="carousel.prev()">Anterior</button>
+        <button (click)="carousel.next()">Próximo</button>
+      </ngb-carousel>
     }
-    <button (click)="carousel.prev()">
-      Anterior
-    </button>
-    <button (click)="carousel.next()">
-      Próximo
-    </button>
-  </ngb-carousel>
-  }
-</div>
+  </div>
 }
 
 @if (!showCarousel) {
-<div>
-  <button (click)="backToCarousel()">Voltar</button>
-  <router-outlet></router-outlet>
-</div>
+  <div>
+    <button (click)="backToCarousel()">Voltar</button>
+    <router-outlet></router-outlet>
+  </div>
 }

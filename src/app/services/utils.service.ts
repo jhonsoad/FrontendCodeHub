@@ -1,11 +1,10 @@
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UtilsService {
-
-  adicionaLinkTag(rel: string, href: string, crossorigin?: string, type?:string): void {
+  adicionaLinkTag(rel: string, href: string, crossorigin?: string, type?: string): void {
     if (typeof document !== 'undefined') {
       const link: HTMLLinkElement = document.createElement('link');
       link.rel = rel;

@@ -8,10 +8,9 @@ describe('JsCriePaginasDinamicasComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [JsCriePaginasDinamicasComponent]
-    })
-    .compileComponents();
-    
+      imports: [JsCriePaginasDinamicasComponent],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(JsCriePaginasDinamicasComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

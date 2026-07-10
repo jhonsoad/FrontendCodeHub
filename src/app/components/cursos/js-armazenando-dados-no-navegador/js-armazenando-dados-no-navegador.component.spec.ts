@@ -8,10 +8,9 @@ describe('JsArmazenandoDadosNoNavegadorComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [JsArmazenandoDadosNoNavegadorComponent]
-    })
-    .compileComponents();
-    
+      imports: [JsArmazenandoDadosNoNavegadorComponent],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(JsArmazenandoDadosNoNavegadorComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

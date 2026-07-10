@@ -1,21 +1,15 @@
-
 import { Component, ViewChild, inject } from '@angular/core';
 import { Router, RouterOutlet } from '@angular/router';
 import { NgbCarousel, NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
 
-
 @Component({
   selector: 'app-carousel',
-  imports: [
-    RouterOutlet,
-    NgbCarouselModule,
-  ],
+  imports: [RouterOutlet, NgbCarouselModule],
   templateUrl: './carousel.component.html',
-  styleUrl: './carousel.component.scss'
+  styleUrl: './carousel.component.scss',
 })
 export class CarouselComponent {
   private router = inject(Router);
-
 
   @ViewChild('carousel', { static: true }) carousel?: NgbCarousel;
 
@@ -25,7 +19,7 @@ export class CarouselComponent {
     { path: 'Js Crie Paginas Dinamicas', image: 'assets/images/crie-paginas-dinamicas.webp' },
     { path: 'Js Manipulando O DOM', image: 'assets/images/manipulando-dom.webp' },
     { path: 'Js Programando na Linguagem Web', image: 'assets/images/programando-linguagem-web.jpg' },
-    { path: 'Logica', image: 'assets/images/logica.jpg' }
+    { path: 'Logica', image: 'assets/images/logica.jpg' },
   ];
 
   showCarousel = true;

@@ -8,10 +8,9 @@ describe('JsProgramandoLinguagemWebComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [JsProgramandoLinguagemWebComponent]
-    })
-    .compileComponents();
-    
+      imports: [JsProgramandoLinguagemWebComponent],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(JsProgramandoLinguagemWebComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

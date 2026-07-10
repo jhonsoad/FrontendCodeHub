@@ -11,14 +11,14 @@ import { AboutComponent } from './pages/about/about.component';
 import { TasksComponent } from './pages/tasks/tasks.component';
 
 export const routes: Routes = [
-    { path: '', component: HomeComponent },
-    { path: 'projects', component: ProjectsComponent },
-    { path: 'about', component: AboutComponent },
-    { path: 'tasks', component: TasksComponent },
-    { path: 'AcessibilidadeWeb', component: AcessibilidadeWebComponent },
-    { path: 'JsArmazenandoDadosNoNavegador', component: JsArmazenandoDadosNoNavegadorComponent },
-    { path: 'JsCriePaginasDinamicas', component: JsCriePaginasDinamicasComponent },
-    { path: 'JsManipulandoODOM', component: JsManipulandoODOMComponent },
-    { path: 'JsProgramandoLinguagemWeb', component: JsProgramandoLinguagemWebComponent },
-    { path: 'Logica', component: LogicaComponent }
+  { path: '', component: HomeComponent },
+  { path: 'projects', component: ProjectsComponent },
+  { path: 'about', component: AboutComponent },
+  { path: 'tasks', component: TasksComponent },
+  { path: 'AcessibilidadeWeb', component: AcessibilidadeWebComponent },
+  { path: 'JsArmazenandoDadosNoNavegador', component: JsArmazenandoDadosNoNavegadorComponent },
+  { path: 'JsCriePaginasDinamicas', component: JsCriePaginasDinamicasComponent },
+  { path: 'JsManipulandoODOM', component: JsManipulandoODOMComponent },
+  { path: 'JsProgramandoLinguagemWeb', component: JsProgramandoLinguagemWebComponent },
+  { path: 'Logica', component: LogicaComponent },
 ];

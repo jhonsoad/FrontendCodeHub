@@ -8,10 +8,9 @@ describe('DifferentialA11yComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [DifferentialA11yComponent]
-    })
-    .compileComponents();
-    
+      imports: [DifferentialA11yComponent],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(DifferentialA11yComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
