@@ -16,7 +16,7 @@ export class JsArmazenandoDadosNoNavegadorComponent implements OnInit {
   private metaService = inject(Meta);
   private utilsService = inject(UtilsService);
 
-  formData: any = {
+  formData: { nome: string; quantidade: string | number } = {
     nome: '',
     quantidade: '',
   };
@@ -42,8 +42,10 @@ export class JsArmazenandoDadosNoNavegadorComponent implements OnInit {
   }
 
   listaItens() {
-    const itensString = localStorage.getItem('itens');
-    this.itens = itensString ? JSON.parse(itensString) : []; //Verifica se a string recuperada existe e, se existir, a converte de volta para um array de itens. Se não existir, define this.itens como um array vazio.
+    if (typeof window !== 'undefined') {
+      const itensString = localStorage.getItem('itens');
+      this.itens = itensString ? JSON.parse(itensString) : []; //Verifica se a string recuperada existe e, se existir, a converte de volta para um array de itens. Se não existir, define this.itens como um array vazio.
+    }
   }
 
   enviaForm(evento: Event): void {
@@ -58,7 +60,7 @@ export class JsArmazenandoDadosNoNavegadorComponent implements OnInit {
           ? this.itens[this.itens.length - 1].id + 1 //Se a lista itens não estiver vazia, o novo ID será o último ID na lista mais um (this.itens[this.itens.length - 1].id + 1).
           : 0, // Caso contrário, se a lista estiver vazia, o ID será 0.
       nome: this.formData.nome,
-      quantidade: this.formData.quantidade,
+      quantidade: Number(this.formData.quantidade),
     };
 
     if (existe) {

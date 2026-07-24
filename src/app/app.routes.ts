@@ -9,12 +9,14 @@ import { HomeComponent } from './pages/home/home.component';
 import { ProjectsComponent } from './pages/projects/projects.component';
 import { AboutComponent } from './pages/about/about.component';
 import { TasksComponent } from './pages/tasks/tasks.component';
+import { PdiComponent } from './pages/pdi/pdi.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'projects', component: ProjectsComponent },
   { path: 'about', component: AboutComponent },
   { path: 'tasks', component: TasksComponent },
+  { path: 'pdi', component: PdiComponent },
   { path: 'AcessibilidadeWeb', component: AcessibilidadeWebComponent },
   { path: 'JsArmazenandoDadosNoNavegador', component: JsArmazenandoDadosNoNavegadorComponent },
   { path: 'JsCriePaginasDinamicas', component: JsCriePaginasDinamicasComponent },
