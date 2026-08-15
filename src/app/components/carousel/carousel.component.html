@@ -5,19 +5,22 @@
         @for (course of courses; track course) {
           <ng-template ngbSlide>
             <div>
-              <img [src]="course.image" (click)="navigateToCourse(course.path)" class="w-100" alt="{{ course.path }}">
+              <button
+                type="button"
+                class="btn-image"
+                (click)="navigateToCourse(course.path)"
+                aria-label="Acessar curso: {{ course.path }}"
+              >
+                <img [src]="course.image" class="w-100" alt="" />
+              </button>
             </div>
             <div class="carousel-title">
               <h3>{{ course.path }}</h3>
             </div>
           </ng-template>
         }
-        <button (click)="carousel.prev()">
-          Anterior
-        </button>
-        <button (click)="carousel.next()">
-          Próximo
-        </button>
+        <button (click)="carousel.prev()">Anterior</button>
+        <button (click)="carousel.next()">Próximo</button>
       </ngb-carousel>
     }
   </div>
@@ -29,4 +32,3 @@
     <router-outlet></router-outlet>
   </div>
 }
-

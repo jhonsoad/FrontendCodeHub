@@ -47,4 +47,3 @@ Cookies guardam informações de forma persistente no navegador, sendo até 4KB 
 
 sessionStorage é similar ao localStorage, sua diferença é que os dados não são salvos de forma persistente, ou seja, ao fechar o navegador eles são perdidos. Este tipo de armazenamento é utilizado quando queremos que a pessoa usuária utilize os dados apenas enquanto estiver com o site aberto.
 const existe = itens.find( elemento => elemento.nome === nome.value ) metodo find para encontrar itens no array nesse caso esta buscando um elemeto que tenha o nome igaul a do nome.value e guarda o objeto na const existe
-
