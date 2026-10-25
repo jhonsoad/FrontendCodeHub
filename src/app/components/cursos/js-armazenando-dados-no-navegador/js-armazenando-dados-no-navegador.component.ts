@@ -1,6 +1,6 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { Title, Meta } from '@angular/platform-browser';
-import { UtilsService } from '../../../services/utils.service';
+import { UtilsService } from '../../../services/utils-service/utils.service';
 import { FormsModule } from '@angular/forms';
 
 import { Item } from './item';
