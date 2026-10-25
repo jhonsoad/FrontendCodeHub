@@ -1,6 +1,6 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { Title, Meta } from '@angular/platform-browser';
-import { UtilsService } from '../../../services/utils.service';
+import { UtilsService } from '../../../services/utils-service/utils.service';
 @Component({
   selector: 'app-js-crie-paginas-dinamicas',
   imports: [],
