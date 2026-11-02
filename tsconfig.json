@@ -19,7 +19,7 @@
     "target": "ES2022",
     "module": "ES2022",
     "useDefineForClassFields": false,
-    "types": ["google.accounts"]
+    "types": ["google.accounts", "jest"]
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
