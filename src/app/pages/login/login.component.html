@@ -1,1 +1,23 @@
-<p>login works!</p>
+<app-header></app-header>
+<div style="padding: 20px">
+  <h2>Minhas Tarefas do Google</h2>
+
+  <!-- O botão do Google será renderizado aqui se o usuário não estiver logado -->
+  @if (!accessToken) {
+    <div id="google-btn"></div>
+  }
+
+  <!-- Botão para carregar as tarefas após o login -->
+  @if (accessToken) {
+    <button (click)="loadTasks()">Carregar Tarefas</button>
+  }
+  @if (tasks.length > 0) {
+    <ul>
+      @for (task of tasks; track task.id) {
+        <li>
+          <strong>{{ task.title }}</strong> - Status: {{ task.status }}
+        </li>
+      }
+    </ul>
+  }
+</div>
