@@ -1,2 +1,42 @@
 <app-header></app-header>
-<p>tasks works!</p>
+
+<main class="tasks">
+  <h1 class="tasks__titulo ff-krona-one">Minhas Tarefas</h1>
+
+  @if (accessToken$ | async; as token) {
+    <!-- Usuário autenticado: exibe as tarefas -->
+    <section class="tasks__lista">
+      @if (tasks$ | async; as tarefas) {
+        @if (tarefas.length > 0) {
+          <ul class="tasks__lista__items">
+            @for (task of tarefas; track task.id) {
+              <li class="tasks__lista__item ff-montserrat">
+                <strong>{{ task.title }}</strong>
+                <span class="tasks__lista__status">{{ task.status }}</span>
+                @if (task.notes) {
+                  <p class="tasks__lista__notas">{{ task.notes }}</p>
+                }
+              </li>
+            }
+          </ul>
+        } @else {
+          <p class="tasks__vazio ff-montserrat">Nenhuma tarefa encontrada.</p>
+        }
+      }
+    </section>
+
+    <button class="tasks__btn tasks__btn--logout" (click)="logout()">
+      Sair
+    </button>
+  } @else {
+    <!-- Usuário não autenticado: pede para fazer login -->
+    <section class="tasks__login">
+      <p class="tasks__login__texto ff-montserrat">
+        Conecte sua conta Google para visualizar suas tarefas.
+      </p>
+      <button class="tasks__btn tasks__btn--login" (click)="login()">
+        Conectar com o Google Tasks
+      </button>
+    </section>
+  }
+</main>
