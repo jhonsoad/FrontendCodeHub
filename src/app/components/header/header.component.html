@@ -3,6 +3,16 @@
     <a class="header__menu__link ff-montserrat" routerLink="/">Home</a>
     <a class="header__menu__link ff-montserrat" routerLink="/about">Sobre mim</a>
     <a class="header__menu__link ff-montserrat" routerLink="/projects">Projetos</a>
-    <!-- <a class="header__menu__link ff-montserrat" routerLink="/tasks">Tarefas</a> -->
+    <!-- <a class="header__menu__link ff-montserrat" routerLink="/pdi">PDI</a> -->
+
+    @if (isAuthenticated$ | async) {
+      <a class="header__menu__link ff-montserrat" routerLink="/tasks">Tarefas</a>
+    }
+
+    @if (isAuthenticated$ | async) {
+      <a class="header__menu__link ff-montserrat" routerLink="/tasks">Conta</a>
+    } @else {
+      <!-- <a class="header__menu__link ff-montserrat" routerLink="/login">Login</a> -->
+    }
   </nav>
 </header>
