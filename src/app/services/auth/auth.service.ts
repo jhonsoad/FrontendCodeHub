@@ -1,5 +1,6 @@
 /// <reference types="google.accounts" />
-import { inject, Injectable } from '@angular/core';
+import { inject, Injectable, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { BehaviorSubject } from 'rxjs';
 import { environment } from '../../../environments/environment';
 import { UtilsService } from '../utils-service/utils.service';
@@ -9,8 +10,9 @@ import { UtilsService } from '../utils-service/utils.service';
 })
 export class AuthService {
   private readonly GSI_SCRIPT_URL = 'https://accounts.google.com/gsi/client';
-  private readonly TASKS_SCOPE = 'https://www.googleapis.com/auth/tasks.readonly';
+  private readonly TASKS_SCOPE = 'https://www.googleapis.com/auth/tasks';
 
+  private platformId = inject(PLATFORM_ID);
   private utilsService = inject(UtilsService);
 
   private _accessToken = new BehaviorSubject<string | null>(null);
@@ -34,6 +36,10 @@ export class AuthService {
    * Deve ser chamado uma única vez, no componente de login (após o DOM estar pronto).
    */
   initTokenClient(): void {
+    if (!isPlatformBrowser(this.platformId)) {
+      return;
+    }
+
     // Injeta o script GSI no <head> de forma lazy (só quando necessário)
     this.utilsService.adicionaLinkTag('preconnect', 'https://accounts.google.com');
 
@@ -57,6 +63,10 @@ export class AuthService {
 
   /** Abre o popup de consentimento do Google para obter o Access Token */
   login(): void {
+    if (!isPlatformBrowser(this.platformId)) {
+      return;
+    }
+
     if (!this.tokenClient) {
       console.error('AuthService: Token Client não foi inicializado. Chame initTokenClient() primeiro.');
       return;
@@ -70,6 +80,10 @@ export class AuthService {
   }
 
   private createTokenClient(): void {
+    if (!isPlatformBrowser(this.platformId)) {
+      return;
+    }
+
     if (typeof google === 'undefined' || !google.accounts?.oauth2) {
       console.error('AuthService: biblioteca do Google Identity Services não disponível.');
       return;
@@ -78,7 +92,7 @@ export class AuthService {
     this.tokenClient = google.accounts.oauth2.initTokenClient({
       client_id: environment.googleClientId,
       scope: this.TASKS_SCOPE,
-      callback: (response) => {
+      callback: (response: google.accounts.oauth2.TokenResponse) => {
         if (response.error) {
           console.error('AuthService: erro na autorização do Google:', response);
           return;
