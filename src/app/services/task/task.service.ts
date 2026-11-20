@@ -10,6 +10,11 @@ export interface Task {
   status: string;
 }
 
+export interface CreateTaskDTO {
+  title: string;
+  notes?: string;
+}
+
 @Injectable({
   providedIn: 'root',
 })
@@ -24,5 +29,14 @@ export class TaskService {
     });
 
     return this.http.get<Task[]>(this.apiUrl, { headers });
+  }
+
+  createTask(accessToken: string, taskData: CreateTaskDTO): Observable<Task> {
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${accessToken}`,
+      'Content-Type': 'application/json',
+    });
+
+    return this.http.post<Task>(this.apiUrl, taskData, { headers });
   }
 }

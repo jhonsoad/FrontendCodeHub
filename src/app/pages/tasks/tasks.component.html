@@ -1,42 +1,121 @@
 <app-header></app-header>
 
 <main class="tasks">
-  <h1 class="tasks__titulo ff-krona-one">Minhas Tarefas</h1>
+  <div class="tasks__container">
+    <h1 class="tasks__titulo ff-krona-one">Minhas Tarefas</h1>
 
-  @if (accessToken$ | async; as token) {
-    <!-- Usuário autenticado: exibe as tarefas -->
-    <section class="tasks__lista">
-      @if (tasks$ | async; as tarefas) {
-        @if (tarefas.length > 0) {
-          <ul class="tasks__lista__items">
-            @for (task of tarefas; track task.id) {
-              <li class="tasks__lista__item ff-montserrat">
-                <strong>{{ task.title }}</strong>
-                <span class="tasks__lista__status">{{ task.status }}</span>
-                @if (task.notes) {
-                  <p class="tasks__lista__notas">{{ task.notes }}</p>
-                }
-              </li>
-            }
-          </ul>
-        } @else {
-          <p class="tasks__vazio ff-montserrat">Nenhuma tarefa encontrada.</p>
-        }
+    @if (accessToken$ | async; as token) {
+      <!-- Seção de Mensagens Globais de Sucesso ou Erro -->
+      @if (successMessage(); as success) {
+        <div class="tasks__alert tasks__alert--success ff-montserrat" role="alert">
+          {{ success }}
+        </div>
       }
-    </section>
 
-    <button class="tasks__btn tasks__btn--logout" (click)="logout()">
-      Sair
-    </button>
-  } @else {
-    <!-- Usuário não autenticado: pede para fazer login -->
-    <section class="tasks__login">
-      <p class="tasks__login__texto ff-montserrat">
-        Conecte sua conta Google para visualizar suas tarefas.
-      </p>
-      <button class="tasks__btn tasks__btn--login" (click)="login()">
-        Conectar com o Google Tasks
-      </button>
-    </section>
-  }
+      @if (errorMessage(); as error) {
+        <div class="tasks__alert tasks__alert--error ff-montserrat" role="alert">
+          {{ error }}
+        </div>
+      }
+
+      <!-- Formulário de Criação de Tarefa -->
+      <section class="tasks__form-card">
+        <h2 class="tasks__subtitulo ff-krona-one">Criar Nova Tarefa</h2>
+
+        <form [formGroup]="taskForm" (ngSubmit)="onCreateTask()" class="tasks__form">
+          <div class="tasks__form__group">
+            <label for="task-title" class="tasks__label ff-montserrat">Título da Tarefa *</label>
+            <input
+              id="task-title"
+              type="text"
+              class="tasks__input ff-montserrat"
+              placeholder="Ex: Estudar Angular e Clean Architecture"
+              formControlName="title"
+            />
+            @if (taskForm.get('title')?.invalid && (taskForm.get('title')?.touched || taskForm.get('title')?.dirty)) {
+              <small class="tasks__error-text ff-montserrat">
+                O título é obrigatório e deve ter no mínimo 2 caracteres.
+              </small>
+            }
+          </div>
+
+          <div class="tasks__form__group">
+            <label for="task-notes" class="tasks__label ff-montserrat">Anotações / Descrição</label>
+            <textarea
+              id="task-notes"
+              class="tasks__textarea ff-montserrat"
+              placeholder="Ex: Revisar entidades, casos de uso e integração Google Tasks"
+              rows="3"
+              formControlName="notes"
+            ></textarea>
+          </div>
+
+          <button
+            type="submit"
+            class="tasks__btn tasks__btn--submit ff-montserrat"
+            [disabled]="taskForm.invalid || isSubmitting()"
+          >
+            @if (isSubmitting()) {
+              <span>Salvando no Google Tasks...</span>
+            } @else {
+              <span>Adicionar Tarefa</span>
+            }
+          </button>
+        </form>
+      </section>
+
+      <!-- Lista de Tarefas -->
+      <section class="tasks__lista-section">
+        <div class="tasks__lista-header">
+          <h2 class="tasks__subtitulo ff-krona-one">Tarefas Sincronizadas</h2>
+          @if (isLoading()) {
+            <span class="tasks__loading-badge ff-montserrat">Atualizando...</span>
+          }
+        </div>
+
+        @if (tasks$ | async; as tarefas) {
+          @if (tarefas.length > 0) {
+            <ul class="tasks__lista__items">
+              @for (task of tarefas; track task.id) {
+                <li class="tasks__lista__item">
+                  <div class="tasks__lista__item-header">
+                    <strong class="tasks__lista__item-title ff-montserrat">{{ task.title }}</strong>
+                    <span
+                      class="tasks__lista__status ff-montserrat"
+                      [class.tasks__lista__status--completed]="task.status === 'completed'"
+                    >
+                      {{ task.status === 'completed' ? 'Concluída' : 'Pendente' }}
+                    </span>
+                  </div>
+                  @if (task.notes) {
+                    <p class="tasks__lista__notas ff-montserrat">{{ task.notes }}</p>
+                  }
+                </li>
+              }
+            </ul>
+          } @else if (!isLoading()) {
+            <p class="tasks__vazio ff-montserrat">Nenhuma tarefa encontrada na sua conta Google.</p>
+          }
+        }
+      </section>
+
+      <!-- Ações de Sessão -->
+      <div class="tasks__footer">
+        <button class="tasks__btn tasks__btn--logout ff-montserrat" (click)="logout()">
+          Sair da Conta Google
+        </button>
+      </div>
+
+    } @else {
+      <!-- Usuário não autenticado -->
+      <section class="tasks__login-card">
+        <p class="tasks__login__texto ff-montserrat">
+          Conecte sua conta do Google para visualizar e criar tarefas diretamente na sua lista do Google Tasks.
+        </p>
+        <button class="tasks__btn tasks__btn--login ff-montserrat" (click)="login()">
+          Conectar com o Google Tasks
+        </button>
+      </section>
+    }
+  </div>
 </main>
