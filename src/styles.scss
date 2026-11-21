@@ -14,3 +14,8 @@
   --cor-terciaria: #22d4fd;
   --cor-hover: #272727;
 }
+
+html, body {
+  background-color: var(--cor-primaria);
+  min-height: 100vh;
+}

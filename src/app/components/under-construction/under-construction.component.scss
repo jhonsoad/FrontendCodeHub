@@ -1,3 +1,13 @@
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
 .under-construction-img {
-  height: 82vh;
+  max-width: 100%;
+  height: auto;
+  max-height: 65vh;
+  object-fit: contain;
 }
