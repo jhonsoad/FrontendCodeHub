@@ -1,4 +1,11 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
 .main {
+  flex: 1;
   color: var(--cor-secundaria);
   background-color: var(--cor-primaria);
 }
@@ -83,5 +90,11 @@
 
   .apresentacao__conteudo {
     width: auto;
+  }
+
+  .apresentacao__imagem {
+    width: 60%;
+    max-height: 400px;
+    object-fit: contain;
   }
 }

@@ -1,5 +1,21 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
 .main {
-  color: var(--cor-secundaria);
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2% 15%;
   background-color: var(--cor-primaria);
-  text-align: center;
+  color: var(--cor-secundaria);
+}
+
+@media (max-width: 1200px) {
+  .main {
+    padding: 5% 10%;
+  }
 }
