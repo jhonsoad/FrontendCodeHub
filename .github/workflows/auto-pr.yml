@@ -36,6 +36,9 @@ jobs:
             sed -i "s|apiUrl: '[^']*'|apiUrl: '$API_URL'|g" src/environments/environment.ts
           fi
 
+      - name: Run Lint
+        run: npm run lint
+
       - name: Run Jest tests
         run: npm run test -- --ci --maxWorkers=2
 

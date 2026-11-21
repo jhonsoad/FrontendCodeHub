@@ -4,7 +4,7 @@ import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { BehaviorSubject, combineLatest, of } from 'rxjs';
 import { catchError, finalize, switchMap } from 'rxjs/operators';
 import { AuthService } from '../../services/auth/auth.service';
-import { Task, TaskService } from '../../services/task/task.service';
+import { TaskService } from '../../services/task/task.service';
 import { HeaderComponent } from '../../components/header/header.component';
 
 @Component({
